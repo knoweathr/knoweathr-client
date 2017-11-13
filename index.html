@@ -14,9 +14,73 @@
     <link rel="stylesheet" href="styles/modules.css">
   </head>
   <body>
+    <header>
+      <h1><img class="logo"><img/>knoWeather</h1>
+    </header>
+    <nav class="main-nav">
+      <ul>
+        <li class="tab" data-content="map"><a href="#">Home</a></li>
+        <li class="tab" data-content="about"><a href="#">About</a></li>
+      </ul>
+    </nav>
 
+    <section id="search-inputs">
+      <form id="fields">
+        <select id="temperature" name="temperature">
+          <option value="choose">Choose your Temperature range</option>
+          <option value="Below Freezing">Below freezing</option>
+          <option value="32 deg - 45 deg">32 deg - 45 deg</option>
+          <option value="45 deg - 55 deg">45 deg - 55 deg</option>
+          <option value="55 deg - 65 deg">55 deg - 65 deg</option>
+          <option value="65 deg - 75 deg">65 deg - 75 deg</option>
+          <option value="75 deg - 85 deg">75 deg - 85 deg</option>
+          <option value="85 deg - 95 deg">85 deg - 95 deg</option>
+          <option value="Cooking">Cooking</option>
+        </select>
+        <select id="month" name="month">
+          <option value="choose">Choose your travel month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+        <select id="continent" name="continent">
+          <option value="choose">Choose your travel continent</option>
+          <option value="Africa">Africa</option>
+          <option value="Asia">Asia</option>
+          <option value="Australia">Australia</option>
+          <option value="Europe">Europe</option>
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
+          <option value="Antartica...wierdo">Antartica...wierdo</option>
+        </select>
+        <input id="submit" type="submit" value="submit" />
+      </form>
+    </section>
 
+    <section id="map">
+<!-- insert our map reference here. Hide Map until user runs a search. -->
+    </section>
 
+    <section id="about">
+      <!-- hide our About section until a user clicks the about route -->
+      <h2>About knoWeather</h2>
+      <p>This is a super project</p>
+      <h2>About the knoWeather team</h2>
+      <img id="andrew"></img><p>Andrew likes coding</p>
+      <img id="joel"></img><p>Joel likes trains</p>
+      <img id="joy"></img><p>Joy hates sleep</p>
+      <img id="will"></img><p>Will is tall</p>
+
+    </section>
 
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
