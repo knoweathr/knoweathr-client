@@ -1,4 +1,20 @@
 #map {
     height: 400px;
-    width: 100%;
+}
+
+#slider-range {
+  width: 95%;
+  margin: auto;
+  margin-top: 0.5em;
+  margin-bottom: 2.5em;
+}
+
+#temperature {
+  border: 0;
+  color: #8fcd9a;
+  font-weight: 900;
+}
+
+#fields {
+  text-align: center;
 }
