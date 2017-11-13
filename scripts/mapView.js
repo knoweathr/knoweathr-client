@@ -12,7 +12,12 @@ var app = app || {};
 
   mapView.initIndexPage = () => {
     mapView.reset();
+    $('#map').hide();
     $('#home').show();
+    $('#fields').on('submit', event => {
+      event.preventDefault();
+      $('#map').show();
+    })
   }
 
   mapView.initAboutPage = () => {
