@@ -4,7 +4,7 @@ var app = app || {};
 var __API_URL__ = 'https://knoweathr.herokuapp.com';
 // var __API_URL__ = 'http://localhost:3000';
 
-$(function(module) {
+(function(module) {
 
   var weather = {};
 
@@ -24,6 +24,7 @@ $(function(module) {
     // $('#slider-range').slider('values', 0);
     // $('#slider-range').slider('values', 1);
   }
+  weather.slider();
 
   module.weather = weather;
 })(app);
