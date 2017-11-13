@@ -13,75 +13,85 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
+    <link rel="stylesheet" href="styles/icons.css">
   </head>
   <body>
-    <header>
-      <h1><img class="logo"><img/>knoWeather</h1>
-    </header>
-    <nav class="main-nav">
-      <ul>
-        <li class="tab" data-content="map"><a href="/">Home</a></li>
-        <li class="tab" data-content="about"><a href="/about">About</a></li>
-      </ul>
-    </nav>
-    <div id="home" class="container">
-      <section id="search-inputs">
-        <form id="fields">
+    <div id="wrapper">
+      <header>
+        <h1><img class="logo" />knoWeather</h1>
 
-          <label for="temperature">Temperature range:</label>
-          <input type="text" id="temperature" readonly style="border:0; color:#f6931f; font-weight:bold;">
-          <div id="slider-range"></div>
+        <nav class="main-nav">
+          <ul>
+            <!-- <li class="tab" data-content="map"><a href="/">Home</a></li>
+            <li class="tab" data-content="about"><a href="/about">About</a></li> -->
+            <li class="tab" data-content="map"><a href="#" class="icon-home"> </a></li>
+            <li class="tab" data-content="about"><a href="#" class="icon-address-book"> </a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div id="home" class="container">
+        <fieldset><legend>Travel Choices</legend>
+          <form id="fields">
+
+            <label for="temperature">Choose your temperature range:</label>
+            <input type="text" id="temperature" readonly>
+            <div id="slider-range"></div>
+
+            <select id="month" name="month" required>
+              <option value="" disabled selected hidden>Choose your travel month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+            <select id="continent" name="continent" required>
+              <option value="" disabled selected hidden>Choose your travel continent</option>
+              <option value="Africa">Africa</option>
+              <option value="Asia">Asia</option>
+              <option value="Australia">Australia</option>
+              <option value="Europe">Europe</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Antartica...wierdo">Antartica...wierdo</option>
+            </select>
+            <input id="submit" type="submit" value="submit" />
+          </form>
+        </fieldset>
+
+        <fieldset id="map"><legend>Results</legend>
+          <!-- insert our map reference here. Hide Map until user runs a search. -->
+        </fieldset>
+
+      </div> <!-- #home container -->
+
+      <section id="about" class="container">
+        <!-- hide our About section until a user clicks the about route -->
+        <h2>About knoWeather</h2>
+        <p>This is a super project</p>
+        <h2>About the knoWeather team</h2>
+        <img id="andrew"></img><p>Andrew likes coding</p>
+        <img id="joel"></img><p>Joel likes trains</p>
+        <img id="joy"></img><p>Joy hates sleep</p>
+        <img id="will"></img><p>Will is tall</p>
+      </section> <!-- #about section -->
 
 
-          <select id="month" name="month">
-            <option value="choose">Choose your travel month</option>
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-          </select>
-          <select id="continent" name="continent">
-            <option value="choose">Choose your travel continent</option>
-            <option value="Africa">Africa</option>
-            <option value="Asia">Asia</option>
-            <option value="Australia">Australia</option>
-            <option value="Europe">Europe</option>
-            <option value="North America">North America</option>
-            <option value="South America">South America</option>
-            <option value="Antartica...wierdo">Antartica...wierdo</option>
-          </select>
-          <input id="submit" type="submit" value="submit" />
-        </form>
-      </section>
+    </div> <!-- #wrapper -->
 
-      <section id="map">
-  <!-- insert our map reference here. Hide Map until user runs a search. -->
-      </section>
-
-    </div>
-
-    <section id="about" class="container">
-      <!-- hide our About section until a user clicks the about route -->
-      <h2>About knoWeather</h2>
-      <p>This is a super project</p>
-      <h2>About the knoWeather team</h2>
-      <img id="andrew"></img><p>Andrew likes coding</p>
-      <img id="joel"></img><p>Joel likes trains</p>
-      <img id="joy"></img><p>Joy hates sleep</p>
-      <img id="will"></img><p>Will is tall</p>
-    </section>
 
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="scripts/jquery.ui.touch-punch.min.js"></script>
     <script src="scripts/mapView.js" type="text/javascript"></script>
     <script src="scripts/weather.js" type="text/javascript"></script>
     <script src="scripts/routes.js" type="text/javascript"></script>

@@ -13,6 +13,7 @@ var __API_URL__ = 'https://knoweathr.herokuapp.com';
       range: true,
       min: 32,
       max: 90,
+      step: 2,
       values: [32, 90],
       slide: function(event, ui) {
         $('#temperature').val(ui.values[0] + 'ºF - ' + ui.values[1] + 'ºF');
