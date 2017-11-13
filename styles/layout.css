@@ -1,0 +1,78 @@
+header {
+  padding: 2em 0;
+}
+
+.main-nav ul {
+  display: inline-block;
+  float: right;
+}
+
+.main-nav li {
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+input {
+  font-size: 1.1em;
+  padding: 0.6em;
+  font-weight: 100;
+  outline: none;
+  border: 0.5px solid #999;
+  border-radius: 2px;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+select {
+  background: #fff;
+  font-size: 1.1em;
+  font-weight: 100;
+  outline: none;
+  width: 100%;
+  margin-bottom: 2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.6em;
+  border-radius: 2px;
+  color: #000;
+}
+
+
+input[type=submit] {
+  border: 0;
+  padding: 13px 35px;
+  font-weight: 500;
+  color: #444;
+  background: #ddd;
+  border-radius: 2px;
+  margin: 1em;
+}
+
+input[type=submit]:active {
+  color: #fff;
+  background: #333;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+fieldset {
+  border: solid 1px;
+  padding: 1.5em;
+  border-radius: 0.3em;
+  margin: 2em 0;
+}
+
+legend {
+  font-weight: 900;
+  font-size: 1.2em;
+}
