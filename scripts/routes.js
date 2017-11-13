@@ -5,3 +5,5 @@ if (window.location.pathname !== '/') {
 
 page('/', ctx => app.initIndexPage(ctx));
 page('/about', ctx => app.initAboutPage(ctx));
+
+page();
