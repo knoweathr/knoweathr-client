@@ -3,7 +3,7 @@ if (window.location.pathname !== '/') {
 }
 
 
-page('/', ctx => app.initIndexPage(ctx));
-page('/about', ctx => app.initAboutPage(ctx));
+page('/', ctx => app.mapView.initIndexPage(ctx));
+page('/about', ctx => app.mapView.initAboutPage(ctx));
 
 page();
