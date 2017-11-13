@@ -1,8 +1,6 @@
 'use strict';
 
 var app = app || {};
-<<<<<<< HEAD
-=======
 
 (function (module){
 
@@ -29,4 +27,3 @@ var app = app || {};
 
   module.mapView = mapView;
 })(app)
->>>>>>> ebc17e300ba252826acba5282c84b2b4be07cd42
