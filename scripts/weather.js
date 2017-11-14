@@ -27,5 +27,15 @@ var __API_URL__ = 'https://knoweathr.herokuapp.com';
   }
   weather.slider();
 
+  weather.fetchAll = () => {
+    $.get('/a37659bb7884be58/planner_01010128/q/KJFK.json')
+      .then(
+        data => console.log(JSON.parse(data));
+        err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
+  }
+
+
+
+
   module.weather = weather;
 })(app);
