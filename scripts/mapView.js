@@ -8,33 +8,33 @@ var app = app || {};
 
   const continents = {
     africa: {
-      lat: ,
-      lng: ,
+      lat: 7.5801957,
+      lng: 23.6492349,
       zoom: 4,
     },
     asia: {
-      lat: ,
-      lng: ,
+      lat: 37.3351182,
+      lng: 102.7507971,
       zoom: 4,
     },
     australia: {
-      lat: ,
-      lng: ,
+      lat: -25.3640032,
+      lng: 134.9627112,
       zoom: 4,
     },
     europe: {
-      lat: ,
-      lng: ,
+      lat: 48.0911143,
+      lng: 4.0994674,
       zoom: 4,
     },
     northAmerica: {
-      lat: ,
-      lng: ,
+      lat: 31.6255973,
+      lng: -146.6254652,
       zoom: 4,
     },
     southAmerica: {
-      lat: ,
-      lng: ,
+      lat: -37.7397733,
+      lng: -76.3224776,
       zoom: 4,
     },
   }
