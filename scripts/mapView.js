@@ -6,7 +6,7 @@ var app = app || {};
 
   const mapView = {};
 
-  const continents = {
+  mapView.continents = {
     africa: {
       lat: 7.5801957,
       lng: 23.6492349,
@@ -27,16 +27,20 @@ var app = app || {};
       lng: 4.0994674,
       zoom: 4,
     },
-    northAmerica: {
+    northamerica: {
       lat: 31.6255973,
       lng: -146.6254652,
       zoom: 4,
     },
-    southAmerica: {
+    southamerica: {
       lat: -37.7397733,
       lng: -76.3224776,
       zoom: 4,
     },
+  }
+
+  mapView.continentSelectionHandler = () => {
+    return module.weather.continentSelection.toLowerCase().split(' ').join('');
   }
 
   mapView.reset = () => {
@@ -61,10 +65,11 @@ var app = app || {};
 
   mapView.initMap = () => {
     let mapDiv = document.getElementById('map');
-    let latlng = new google.maps.LatLng(-34.397, 150.644);//eslint-disable-line
+    let selection = mapView.continentSelectionHandler();
+    let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
     let mapOptions =
     {
-      zoom: 4,
+      zoom: mapView.continents[selection].zoom,
       center:latlng,
     };
     var map = new google.maps.Map(mapDiv, mapOptions);//eslint-disable-line

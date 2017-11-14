@@ -1,12 +1,12 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://knoweathr.herokuapp.com';
-// var __API_URL__ = 'http://localhost:3000';
+const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
+// const __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
 
-  var weather = {};
+  const weather = {};
 
   weather.slider = () => {
     $('#slider-range').slider({
@@ -26,6 +26,10 @@ var __API_URL__ = 'https://knoweathr.herokuapp.com';
     // $('#slider-range').slider('values', 1);
   }
   weather.slider();
+
+  $('#continent').on('change', event => {
+    weather.continentSelection = event.target.value;
+  })
 
   module.weather = weather;
 })(app);
