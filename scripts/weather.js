@@ -31,11 +31,10 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     weather.continentSelection = event.target.value;
   })
 
-  
   weather.fetchAll = () => {
     $.get('/a37659bb7884be58/planner_01010128/q/KJFK.json')
       .then(
-        data => console.log(JSON.parse(data));
+        data => console.log(JSON.parse(data)),
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
   }
 
