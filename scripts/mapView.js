@@ -16,6 +16,7 @@ var app = app || {};
     $('#home').show();
     $('#fields').on('submit', event => {
       event.preventDefault();
+      mapView.initMap();
       $('#map').show();
     })
   }
@@ -23,6 +24,17 @@ var app = app || {};
   mapView.initAboutPage = () => {
     mapView.reset();
     $('#about').show();
+  }
+
+  mapView.initMap = () => {
+    let mapDiv = document.getElementById('map');
+    let latlng = new google.maps.LatLng(-34.397, 150.644);//eslint-disable-line
+    let mapOptions =
+    {
+      zoom: 4,
+      center:latlng,
+    };
+    var map = new google.maps.Map(mapDiv, mapOptions);//eslint-disable-line
   }
 
   module.mapView = mapView;
