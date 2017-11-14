@@ -4,7 +4,40 @@ var app = app || {};
 
 (function (module){
 
-  let mapView = {};
+  const mapView = {};
+
+  const continents = {
+    africa: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+    asia: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+    australia: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+    europe: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+    northAmerica: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+    southAmerica: {
+      lat: ,
+      lng: ,
+      zoom: 4,
+    },
+  }
 
   mapView.reset = () => {
     $('.container').hide();
