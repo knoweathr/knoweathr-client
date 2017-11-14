@@ -8,34 +8,28 @@ var app = app || {};
 
   mapView.continents = {
     africa: {
-      lat: 7.5801957,
-      lng: 23.6492349,
-      zoom: 4,
+      lat: -4.4726939,
+      lng: 21.7325174,
     },
     asia: {
-      lat: 37.3351182,
-      lng: 102.7507971,
-      zoom: 4,
+      lat: 30.0787446,
+      lng: 92.2115664,
     },
     australia: {
-      lat: -25.3640032,
-      lng: 134.9627112,
-      zoom: 4,
+      lat: -25.7599689,
+      lng: 137.2212573,
     },
     europe: {
-      lat: 48.0911143,
-      lng: 4.0994674,
-      zoom: 4,
+      lat: 53.9194086,
+      lng: 9.3056021,
     },
     northamerica: {
-      lat: 31.6255973,
-      lng: -146.6254652,
-      zoom: 4,
+      lat: 34.6172354,
+      lng: -93.6558639,
     },
     southamerica: {
-      lat: -37.7397733,
-      lng: -76.3224776,
-      zoom: 4,
+      lat: -17.2852625,
+      lng: -60.6089889,
     },
   }
 
@@ -69,7 +63,7 @@ var app = app || {};
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
     let mapOptions =
     {
-      zoom: mapView.continents[selection].zoom,
+      zoom: 3,
       center:latlng,
     };
     var map = new google.maps.Map(mapDiv, mapOptions);//eslint-disable-line
