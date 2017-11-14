@@ -1,12 +1,12 @@
 'use strict';
 
 var app = app || {};
-var __API_URL__ = 'https://knoweathr.herokuapp.com';
-// var __API_URL__ = 'http://localhost:3000';
+const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
+// const __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
 
-  var weather = {};
+  const weather = {};
 
   weather.slider = () => {
     $('#slider-range').slider({
@@ -27,15 +27,16 @@ var __API_URL__ = 'https://knoweathr.herokuapp.com';
   }
   weather.slider();
 
+  $('#continent').on('change', event => {
+    weather.continentSelection = event.target.value;
+  })
+
   weather.fetchAll = () => {
     $.get('/a37659bb7884be58/planner_01010128/q/KJFK.json')
       .then(
-        data => console.log(JSON.parse(data));
+        data => console.log(JSON.parse(data)),
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
   }
-
-
-
 
   module.weather = weather;
 })(app);
