@@ -20,7 +20,7 @@ var __API_URL__ = 'https://knoweathr.herokuapp.com';
       }
     });
     $('#temperature').val($('#slider-range').slider('values', 0) +
-      'ºF - ' + $('#slider-range').slider('values', 1) + 'ºF');
+      'ºF or less - ' + $('#slider-range').slider('values', 1) + 'ºF or more');
     // // Calling min and max
     // $('#slider-range').slider('values', 0);
     // $('#slider-range').slider('values', 1);
