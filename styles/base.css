@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
+@import url("https://fonts.googleapis.com/css?family=Raleway|Barlow+Condensed|Spectral+SC");
 
 body {
   box-sizing: border-box;
@@ -8,12 +8,17 @@ body {
   line-height: 1.3em;
   word-spacing: 0.1em;
   letter-spacing: 0.05em;
-  background: #fff;
+  /*background: -webkit-radial-gradient(#8fcd9a, #d9fcd3);
+  background: -o-radial-gradient(#8fcd9a, #d9fcd3);
+  background: -moz-radial-gradient(#8fcd9a, #d9fcd3);
+  background: radial-gradient(#8fcd9a, #d9fcd3);*/
+  background: #fdee92 url("../bg.jpg") no-repeat fixed;
+  background-size: cover;
   color: #000;
 }
 
 #wrapper {
-  width: 95%;
+  width: 100%;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -23,14 +28,27 @@ a {
   text-decoration: none;
 }
 
-
 h1 {
   display: inline-block;
-  font-size: 2em;
+  font-family: 'Spectral SC', Raleway, sans-serif;
+  font-size: 1.8em;
   font-weight: 900;
   letter-spacing: 0.02em;
   float: left;
   margin-top: 0.3em;
+  padding: 0 0.3em;
+  color: #ede3d7;
+  text-shadow: 1px 0 2px #722600;
+}
+
+@media only screen and (min-width: 359px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 32px;
+  }
 }
 
 .clearfix::after {

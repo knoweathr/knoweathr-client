@@ -10,24 +10,27 @@
     <title>knoWeather</title>
     <link rel="stylesheet" href="styles/jquery-ui.min.css">
     <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/icons.css">
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
-    <link rel="stylesheet" href="styles/icons.css">
   </head>
   <body>
     <div id="wrapper">
-      <header>
+      <header class="clearfix">
         <h1><img class="logo" />knoWeathr</h1>
 
         <nav class="main-nav">
           <ul>
             <!-- <li class="tab" data-content="map"><a href="/">Home</a></li>
             <li class="tab" data-content="about"><a href="/about">About</a></li> -->
-            <li class="tab" data-content="map"><a href="/" class="icon-home"> </a></li>
-            <li class="tab" data-content="about"><a href="/about" class="icon-address-book"> </a></li>
+            <li class="tab" data-content="map"><a href="/" class="icon-home"></a></li>
+            <li class="tab" data-content="about"><a href="/about" class="icon-address-book"></a></li>
           </ul>
         </nav>
+
+        <div id="header-subtext">know whether the weather is right for you</div>
+        <div id="icon-subtext">Home About</div>
       </header>
 
       <div id="home" class="container">
@@ -61,15 +64,15 @@
               <option value="Europe">Europe</option>
               <option value="North America">North America</option>
               <option value="South America">South America</option>
-              <option value="Antartica...wierdo">Antartica...wierdo</option>
+              <option value="Antarctica">Antartica</option>
             </select>
             <input id="submit" type="submit" value="submit" />
           </form>
         </fieldset>
 
-        <fieldset id="map"><legend>Results</legend>
+        <div id="map">
           <!-- insert our map reference here. Hide Map until user runs a search. -->
-        </fieldset>
+        </div>
 
       </div> <!-- #home container -->
 
