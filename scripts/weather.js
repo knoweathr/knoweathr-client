@@ -1,14 +1,14 @@
 'use strict';
 
 var app = app || {};
-const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
-// const __API_URL__ = 'http://localhost:3000';
+// const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
+const __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
 
   const weather = {};
 
-  weather.slider = () => {
+  (weather.slider = () => {
     $('#slider-range').slider({
       range: true,
       min: 32,
@@ -29,8 +29,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     // // Calling min and max
     // $('#slider-range').slider('values', 0);
     // $('#slider-range').slider('values', 1);
-  }
-  weather.slider();
+  })();
 
   $('#continent').on('change', event => {
     weather.continentSelection = event.target.value;
@@ -38,7 +37,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   $('#fields').on('submit', function(e) {
     e.preventDefault();
-    $('#noresults').hide();
     let continent = $('#continent').find(':selected').val();
     let month = $('#month').find(':selected').val();
     weather.filteredArr = [];
@@ -59,18 +57,13 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
     // 10 is the number of airports in each continent in our JSON file. This count should be updated if we add more airports. This is the janky way of making sure that weather.filteredArr is completely populated before the getFilteredInfo method runs asyncronously.
     if (weather.count === 10) {
+      console.log(weather.filteredArr);
       weather.getFilteredInfo(weather.filteredArr);
     }
   }
 
   weather.getFilteredInfo = (arr, callback) => {
     // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
-    console.log(weather.filteredArr);
-    console.log(arr.length);
-    if (arr.length === 0) $('#noresults').show();
-
-
-
     weather.filteredInfo = [];
     arr.forEach(el => {
       $.get(`${__API_URL__}/getfilteredinfo`, {'airport_code': el[0], 'month': el[1]})
