@@ -55,6 +55,8 @@ var app = app || {};
   }
 
   mapView.initMap = () => {
+    $('#map').show();
+    console.log('initmap');
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
@@ -63,8 +65,11 @@ var app = app || {};
       zoom: 3,
       center:latlng,
     };
+    console.log('midway');
+    console.log(app.weather.filteredInfo.length);
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
-    module.weather.filteredInfo.forEach(airport => {
+    app.weather.filteredInfo.forEach(airport => {
+      console.log(airport.lat, airport.lon, airport.name);
       let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
       let marker = new google.maps.Marker({ //eslint-disable-line
         position: position,

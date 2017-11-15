@@ -41,7 +41,7 @@ const __API_URL__ = 'http://localhost:3000';
     let continent = $('#continent').find(':selected').val();
     let month = $('#month').find(':selected').val();
     weather.filteredArr = [];
-    weather.count = 1;
+    weather.count = 0;
     weather.tempMin = $('#slider-range').slider('values', 0);
     weather.tempMax = $('#slider-range').slider('values', 1);
     if (weather.tempMin === 32) weather.tempMin = -100;
@@ -63,7 +63,7 @@ const __API_URL__ = 'http://localhost:3000';
     }
   }
 
-  weather.getFilteredInfo = (arr) => {
+  weather.getFilteredInfo = (arr, callback) => {
     // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
     weather.filteredInfo = [];
     arr.forEach(el => {
@@ -74,10 +74,10 @@ const __API_URL__ = 'http://localhost:3000';
             weather.filteredInfo.push(data[0]);
           },
           err => console.error(err)
-        );
+        )
+        .then(() => app.mapView.initMap());
     })
-    app.mapView.initMap();
-    $('#map').show();
+    // app.mapView.initMap();
   }
 
   weather.fetchOne = obj => {
