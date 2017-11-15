@@ -45,7 +45,7 @@ h2 {
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 15px;
-  margin-top: 20px;
+  margin-top: 0.5em;
 }
 
 @media only screen and (min-width: 411px) {
@@ -62,4 +62,9 @@ h2 {
   content: "";
   display: table;
   clear: both;
+}
+
+p {
+  font-size: 0.9em;
+  margin: 0.5em 0 2em 0;
 }
