@@ -45,11 +45,12 @@ var app = app || {};
     mapView.reset();
     $('#map').hide();
     $('#home').show();
-    $('#fields').on('submit', event => {
-      event.preventDefault();
-      mapView.initMap();
-      $('#map').show();
-    })
+    // I put the on submit event after weather.filteredInfo so that the filteredInfo method completes with all of the relevant data that you need, before you initiate the map.
+    // $('#fields').on('submit', event => {
+    //   event.preventDefault();
+    //   mapView.initMap();
+    //   $('#map').show();
+    // })
   }
 
   mapView.initAboutPage = () => {

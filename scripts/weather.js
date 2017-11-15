@@ -33,16 +33,47 @@ const __API_URL__ = 'http://localhost:3000';
 
   $('#fields').on('submit', function(e) {
     e.preventDefault();
-    let continent = $('#continent').find(':selected').text();
-    let month = $('#month').find(':selected').text();
-    let tempMin = $('#slider-range').slider('values', 0);
-    let tempMax = $('#slider-range').slider('values', 1);
-    console.log(continent, month, tempMin, tempMax);
+    let continent = $('#continent').find(':selected').val();
+    let month = $('#month').find(':selected').val();
+    weather.filteredArr = [];
+    weather.count = 1;
+    weather.tempMin = $('#slider-range').slider('values', 0);
+    weather.tempMax = $('#slider-range').slider('values', 1);
+    weather.fetchContinent([month, {'continent': continent}]);
+    // weather.getFilteredInfo(weather.filteredArr);
   });
+
+  weather.filterAirports = arr => {
+    // arr is [airport_code, {key: high_temp}, month]
+    let temp = Number(arr[1][Object.keys(arr[1])[0]]);
+    if (temp >= weather.tempMin && temp <= weather.tempMax) weather.filteredArr.push([arr[0], arr[2]]);
+    weather.count++;
+
+    // 10 is the number of airports in each continent in our JSON file. This count should be updated if we add more airports. This is the janky way of making sure that weather.filteredArr is completely populated before the getFilteredInfo method runs asyncronously.
+    if (weather.count === 10) {
+      weather.getFilteredInfo(weather.filteredArr);
+    }
+  }
+
+  weather.getFilteredInfo = (arr) => {
+    // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
+    weather.filteredInfo = [];
+    arr.forEach(el => {
+      $.get(`${__API_URL__}/getfilteredinfo`, {'airport_code': el[0], 'month': el[1]})
+        .then(
+          data => {
+            // weather.filteredInfo is an array of objects. Each object contains information for the relevant airports in the user's search criteria. Use weather.filteredInfo to populate the map.
+            weather.filteredInfo.push(data[0]);
+          },
+          err => console.error(err)
+        );
+    })
+    app.mapView.initMap();
+    $('#map').show();
+  }
 
   weather.fetchOne = obj => {
     // obj is {airport_code: airport_code, month: month}
-
     let monthnumbers = '';
     switch(obj.month) {
     case 'jan':
@@ -86,25 +117,22 @@ const __API_URL__ = 'http://localhost:3000';
     $.get(`${__API_URL__}/fetchone`, {'airport_code': obj.airport_code, 'month': obj.month, 'monthnumbers': monthnumbers})
       .then(
         data => {
-          console.log(data);
-          console.log('hello');
-          // weather.addToDB(JSON.parse(data));
+          weather.filterAirports([obj.airport_code, data, obj.month]);
         },
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
   }
 
-  // continent is an array of [month, {continent: continent}]
+  // arr is an array of [month, {continent: continent}]
   // app.weather.fetchContinent([jan, {continent: 'northamerica'}])
-  // month needs to be in the format 01010128
   weather.fetchContinent = arr => {
     $.get(`${__API_URL__}/fetchcontinent`, arr[1])
       .then(
         data => {
-          let airportArr = [];
-          data.forEach(el => airportArr.push(el.airport_code))
-          airportArr.forEach(el => weather.fetchOne({'airport_code': el, 'month': arr[0]}));
+          let airportsInContinent = [];
+          data.forEach(el => airportsInContinent.push(el.airport_code))
+          airportsInContinent.forEach(el => weather.fetchOne({'airport_code': el, 'month': arr[0]}));
         },
-        err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
+        err => console.error(err));
   }
 
   module.weather = weather;
