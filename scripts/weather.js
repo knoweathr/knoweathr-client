@@ -16,7 +16,12 @@ const __API_URL__ = 'http://localhost:3000';
       step: 2,
       values: [32, 100],
       slide: function(event, ui) {
-        $('#temperature').val(ui.values[0] + 'ºF - ' + ui.values[1] + 'ºF');
+        let degF1 = 'ºF - ';
+        let degF2 = 'ºF';
+        if (ui.values[0] === 32) degF1 = 'ºF or less - ';
+        if (ui.values[1] === 100) degF2 = 'ºF or more';
+        console.log(degF1);
+        $('#temperature').val(ui.values[0] + degF1 + ui.values[1] + degF2);
       }
     });
     $('#temperature').val($('#slider-range').slider('values', 0) +
@@ -39,6 +44,8 @@ const __API_URL__ = 'http://localhost:3000';
     weather.count = 1;
     weather.tempMin = $('#slider-range').slider('values', 0);
     weather.tempMax = $('#slider-range').slider('values', 1);
+    if (weather.tempMin === 32) weather.tempMin = -100;
+    if (weather.tempMax === 100) weather.tempMax = 200;
     weather.fetchContinent([month, {'continent': continent}]);
     // weather.getFilteredInfo(weather.filteredArr);
   });
@@ -51,6 +58,7 @@ const __API_URL__ = 'http://localhost:3000';
 
     // 10 is the number of airports in each continent in our JSON file. This count should be updated if we add more airports. This is the janky way of making sure that weather.filteredArr is completely populated before the getFilteredInfo method runs asyncronously.
     if (weather.count === 10) {
+      console.log(weather.filteredArr);
       weather.getFilteredInfo(weather.filteredArr);
     }
   }
@@ -117,6 +125,7 @@ const __API_URL__ = 'http://localhost:3000';
     $.get(`${__API_URL__}/fetchone`, {'airport_code': obj.airport_code, 'month': obj.month, 'monthnumbers': monthnumbers})
       .then(
         data => {
+          console.log(obj.airport_code, data);
           weather.filterAirports([obj.airport_code, data, obj.month]);
         },
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
