@@ -8,7 +8,7 @@ var app = app || {};
 
   mapView.continents = {
     africa: {
-      lat: -4.4726939,
+      lat: 2.4726939,
       lng: 21.7325174,
     },
     asia: {
@@ -28,10 +28,28 @@ var app = app || {};
       lng: -93.6558639,
     },
     southamerica: {
-      lat: -17.2852625,
+      lat: -27.2852625,
       lng: -60.6089889,
     },
   }
+
+  const airportArr = [
+    {
+      airport_code: 'asdf',
+      lat: '9.338',
+      lon: '32.333',
+    },
+    {
+      airport_code: 'aff',
+      lat: '37.338',
+      lon: '-32.333',
+    },
+    {
+      airport_code: 'afd',
+      lat: '39.338',
+      lon: '-22.3333',
+    },
+  ]
 
   mapView.createMarkers = () => {
     //foreach of all markers to place markers on the map.
@@ -60,7 +78,6 @@ var app = app || {};
   mapView.initMap = () => {
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
-    console.log(selection);
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
     let mapOptions =
     {
@@ -68,6 +85,15 @@ var app = app || {};
       center:latlng,
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
+    airportArr.forEach(airport => {
+      let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
+      // bounds.extend(position);
+      let marker = new google.maps.Marker({ //eslint-disable-line
+        position: position,
+        map: map,
+        title: airport.airport_code,
+      })
+    })
   }
 
   module.mapView = mapView;
