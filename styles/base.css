@@ -41,6 +41,13 @@ h1 {
   text-shadow: 1px 0 2px #722600;
 }
 
+h2 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
 @media only screen and (min-width: 359px) {
   h1 {
     font-size: 2em;
