@@ -48,7 +48,7 @@ h2 {
   margin-top: 20px;
 }
 
-@media only screen and (min-width: 359px) {
+@media only screen and (min-width: 411px) {
   h1 {
     font-size: 2em;
   }

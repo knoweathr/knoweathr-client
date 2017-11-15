@@ -71,7 +71,7 @@
   clear: right;
 }
 
-@media only screen and (min-width: 359px) {
+@media only screen and (min-width: 411px) {
   #header-subtext {
     font-size: 0.8em;
   }
@@ -80,4 +80,20 @@
     font-size: 0.9em;
     word-spacing: 1em;
   }
+}
+
+/* for iPhone 5 */
+@media only screen and (max-width: 321px) {
+  #header-subtext {
+    font-size: 0.6em;
+  }
+}
+
+#login {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.loginlabel {
+  font-size: 1.1em;
 }
