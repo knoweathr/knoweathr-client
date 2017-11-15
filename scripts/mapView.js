@@ -64,14 +64,12 @@ var app = app || {};
       center:latlng,
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
-    // airportArr is a placeholder for the array of filtered airport objects that Joy is currently writing the function for
-    //+++++++++++++++++++++++++++++
-    airportArr.forEach(airport => {
+    module.weather.filteredInfo.forEach(airport => {
       let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
       let marker = new google.maps.Marker({ //eslint-disable-line
         position: position,
         map: map,
-        title: airport.airport_code,
+        title: airport.name,
       })
     })
   }
