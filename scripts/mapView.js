@@ -8,7 +8,7 @@ var app = app || {};
 
   mapView.continents = {
     africa: {
-      lat: -4.4726939,
+      lat: 2.4726939,
       lng: 21.7325174,
     },
     asia: {
@@ -28,13 +28,9 @@ var app = app || {};
       lng: -93.6558639,
     },
     southamerica: {
-      lat: -17.2852625,
+      lat: -27.2852625,
       lng: -60.6089889,
     },
-  }
-
-  mapView.continentSelectionHandler = () => {
-    return module.weather.continentSelection.toLowerCase().split(' ').join('');
   }
 
   mapView.reset = () => {
@@ -45,11 +41,12 @@ var app = app || {};
     mapView.reset();
     $('#map').hide();
     $('#home').show();
-    $('#fields').on('submit', event => {
-      event.preventDefault();
-      mapView.initMap();
-      $('#map').show();
-    })
+    // I put the on submit event after weather.filteredInfo so that the filteredInfo method completes with all of the relevant data that you need, before you initiate the map.
+    // $('#fields').on('submit', event => {
+    //   event.preventDefault();
+    //   mapView.initMap();
+    //   $('#map').show();
+    // })
   }
 
   mapView.initAboutPage = () => {
@@ -58,15 +55,24 @@ var app = app || {};
   }
 
   mapView.initMap = () => {
-    let mapDiv = document.getElementById('map');
-    let selection = mapView.continentSelectionHandler();
+    $('#map').show();
+    let $mapDiv = document.getElementById('map');
+    let selection = module.weather.continentSelection;
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
     let mapOptions =
     {
       zoom: 3,
       center:latlng,
     };
-    var map = new google.maps.Map(mapDiv, mapOptions);//eslint-disable-line
+    var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
+    app.weather.filteredInfo.forEach(airport => {
+      let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
+      let marker = new google.maps.Marker({ //eslint-disable-line
+        position: position,
+        map: map,
+        title: airport.name,
+      })
+    })
   }
 
   module.mapView = mapView;
