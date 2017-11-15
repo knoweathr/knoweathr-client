@@ -1,5 +1,5 @@
 if (window.location.pathname !== '/') {
-  console.log('gh paged detected')
+  console.log('gh pages detected')
   page.base('/knoweathr-client')
 }
 
