@@ -26,12 +26,48 @@
             <li class="tab" data-content="about"><a href="/about">About</a></li> -->
             <li class="tab" data-content="map"><a href="/" class="icon-home"></a></li>
             <li class="tab" data-content="about"><a href="/about" class="icon-address-book"></a></li>
+            <li class="tab" data-content="login"><a href="/login" class="icon-power"></a></li>
           </ul>
         </nav>
 
         <div id="header-subtext">know whether the weather is right for you</div>
-        <div id="icon-subtext">Home About</div>
+        <div id="icon-subtext">Home About Login</div>
       </header>
+
+
+      <div id="login" class="">
+
+        <fieldset><legend>Travel Choices</legend>
+          <form id="loginform">
+            <h2>Login</h2>
+
+            <input type="text" id="username" name="username" placeholder="username" />
+
+            <input type="password" id="password" name="password" placeholder="password" />
+
+            </select>
+            <input id="loginsubmit" type="submit" value="login" /> <button id="register">register</button>
+          </form>
+
+          <p id="validationmsg"></p>
+
+        </fieldset>
+        <!---
+        login TABLE columns
+        - username
+        - password
+        - array of saved locations
+            array of objects
+            [
+              {location: airport_code, month: month, temp: temp_high, precip: %},
+              ...
+            ]
+
+        - add locations
+        - delete locations
+        -->
+      </div> <!-- login container -->
+
 
       <div id="home" class="container">
         <fieldset><legend>Travel Choices</legend>
@@ -75,7 +111,7 @@
 
       </div> <!-- #home container -->
 
-      <section id="about" class="container">
+      <div id="about" class="container">
         <!-- hide our About section until a user clicks the about route -->
         <h2>About knoWeathr</h2>
         <p>One of the great problems that plagues us in the 21st century is the difficulty of planning a successful trip. The biggest variable is always the weather. Taking this into consideration, our team decided to design an app which can help. We use weather data which looks at past trends in the weather to help you decide where to travel based on what kind of weather you prefer.</p>
@@ -84,7 +120,7 @@
         <img src="assets/joel-about.jpg" id="joel"></img><p>Joel likes trains</p>
         <img src="assets/joy-about.jpg" id="joy"></img><p>Joy hates sleep</p>
         <img src="assets/will-about.jpg" id="will"></img><p>Will is tall</p>
-      </section> <!-- #about section -->
+      </div> <!-- #about section -->
 
 
     </div> <!-- #wrapper -->
