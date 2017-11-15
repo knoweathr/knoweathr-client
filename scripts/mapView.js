@@ -37,10 +37,6 @@ var app = app || {};
     //foreach of all markers to place markers on the map.
   }
 
-  mapView.continentSelectionHandler = () => {
-    return module.weather.continentSelection.toLowerCase().split(' ').join('');
-  }
-
   mapView.reset = () => {
     $('.container').hide();
   }
@@ -62,9 +58,9 @@ var app = app || {};
   }
 
   mapView.initMap = () => {
-    app.Airport.fetchContinent();
-    let $mapDiv = $('map');
-    let selection = mapView.continentSelectionHandler();
+    let $mapDiv = document.getElementById('map');
+    let selection = module.weather.continentSelection;
+    console.log(selection);
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
     let mapOptions =
     {
@@ -72,16 +68,6 @@ var app = app || {};
       center:latlng,
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
-
-    app.Airport.all.forEach(airport => {
-      let position = new google.maps.LatLng(airport.lat, airport.lng);//eslint-disable-line
-      bounds.extend(position);//eslint-disable-line
-      airport = new google.maps.Marker({//eslint-disable-line
-        position: position,
-        map: map,
-        title: airport.name,
-      });
-    })
   }
 
   module.mapView = mapView;
