@@ -31,6 +31,14 @@ const __API_URL__ = 'http://localhost:3000';
     weather.continentSelection = event.target.value;
   })
 
+  $('#fields').on('submit', function(e) {
+    e.preventDefault();
+    let continent = $('#continent').find(':selected').text();
+    let month = $('#month').find(':selected').text();
+    let tempMin = $('#slider-range').slider('values', 0);
+    let tempMax = $('#slider-range').slider('values', 1);
+    console.log(continent, month, tempMin, tempMax);
+  });
 
   weather.fetchOne = obj => {
     // obj is {airport_code: airport_code, month: month}
@@ -86,7 +94,7 @@ const __API_URL__ = 'http://localhost:3000';
   }
 
   // continent is an array of [month, {continent: continent}]
-  // app.weather.fetchContinent([month, {continent: 'North America'}])
+  // app.weather.fetchContinent([jan, {continent: 'northamerica'}])
   // month needs to be in the format 01010128
   weather.fetchContinent = arr => {
     $.get(`${__API_URL__}/fetchcontinent`, arr[1])
