@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
 
-
-
     <script id="favorites-template" type="text/x-handlebars-template">
       <ul class="savedlocations clearfix"><span class="savedlocationheader">{{airport_code}} in {{month}}</span><br />
         <li>Airport: {{airport_name}}</li>
@@ -30,8 +28,7 @@
       </ul>
     </script>
 
-
-
+    <base href=".">
   </head>
   <body>
     <div id="wrapper">
@@ -42,9 +39,9 @@
           <ul>
             <!-- <li class="tab" data-content="map"><a href="/">Home</a></li>
             <li class="tab" data-content="about"><a href="/about">About</a></li> -->
-            <li class="tab" data-content="map"><a href="/" class="icon-home"></a></li>
-            <li class="tab" data-content="about"><a href="/about" class="icon-address-book"></a></li>
-            <li class="tab" data-content="login"><a href="/login" class="icon-power"></a></li>
+            <li class="tab" data-content="map"><a href="" class="icon-home"></a></li>
+            <li class="tab" data-content="about"><a href="about" class="icon-address-book"></a></li>
+            <li class="tab" data-content="login"><a href="login" class="icon-power"></a></li>
           </ul>
         </nav>
 
