@@ -16,16 +16,22 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
 
+
+
     <script id="favorites-template" type="text/x-handlebars-template">
-      <section class="book-main book-main-section">
-        <div>
-          <img src="{{image_url}}" />
-        </div>
-        <h3>{{title}}</h3>
-        <h4>{{author}}</h4>
-        <button id="viewdetails" data-fetchone="{{book_id}}">view details</button>
-      </section>
+      <ul class="savedlocations clearfix"><span class="savedlocationheader">{{airport_code}} in {{month}}</span><br />
+        <li>Airport: {{airport_name}}</li>
+        <li>Average High Temperature: {{temp_high}}º</li>
+        <li>Average Low Temperature: {{temp_low}}º</li>
+        <li>Precipitation: {{precipitation}}%</li>
+        <li>Cloud Cover: {{cloud_cover_cond}}</li>
+        <li>Elevation: {{elevation}}</li>
+        <li class="deletelocation">[<a href="#" id="">delete location</a>]</li>
+      </ul>
     </script>
+
+
+
   </head>
   <body>
     <div id="wrapper">
@@ -53,12 +59,12 @@
           <form id="loginform">
             <h2>Login</h2>
 
-            <input type="text" id="username" name="username" placeholder="username" />
+            <input type="text" id="username" name="username" placeholder="username" required />
 
-            <input type="password" id="password" name="password" placeholder="password" />
+            <input type="password" id="password" name="password" placeholder="password" required />
 
             </select>
-            <button id="loginbutton">login</button> <button id="registerbutton">register</button>
+            <button id="loginbutton">login / register</button>
           </form>
 
           <p id="validationmsg"></p>
@@ -67,42 +73,11 @@
 
         <div id="favorites">
           <h2>Saved Locations</h2>
-
-          <ul class="savedlocations clearfix"><span class="savedlocationheader">Thailand in January</span><br />
-            <li>Airport: BangkoK International (BAI)</li>
-            <li>Average High Temperature: 86º</li>
-            <li>Average Low Temperature: 43º</li>
-            <li>Precipitation: 43%</li>
-            <li>Cloud Cover: Sunny</li>
-            <li class="deletelocation">[<a href="#">delete location</a>]</li>
-          </ul>
-
-          <ul class="savedlocations clearfix"><span class="savedlocationheader">Thailand in January</span><br />
-            <li>Airport: BangkoK International (BAI)</li>
-            <li>Average High Temperature: 86º</li>
-            <li>Average Low Temperature: 43º</li>
-            <li>Precipitation: 43%</li>
-            <li>Cloud Cover: Sunny</li>
-            <li class="deletelocation">[<a href="#">delete location</a>]</li>
-          </ul>
-
-
-        </div>
-
-        <!---
-        login TABLE columns
-        - username
-        - password
-        - array of saved locations
-            array of objects
-            [
-              {location: airport_code, month: month, temp: temp_high, precip: %},
-              ...
-            ]
-
-        - add locations
-        - delete locations
-        -->
+          <p id="nosaved">You have no saved locations.</p>
+          <div id="renderfavorites">
+            <!--- append handlebars templates here -->
+          </div>
+        </div> <!-- favorites div -->
       </div> <!-- login container -->
 
 
@@ -146,6 +121,11 @@
           <!-- insert our map reference here. Hide Map until user runs a search. -->
         </div>
 
+        <div id="noresults">
+          <h2>No results</h2>
+          <p>Your search did not return any results. Please expand your temperature range and try again.</p>
+        </div>
+
       </div> <!-- #home container -->
 
       <div id="about" class="container">
@@ -166,6 +146,7 @@
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/jquery.ui.touch-punch.min.js"></script>
     <script src="scripts/mapView.js" type="text/javascript"></script>
     <script src="scripts/weather.js" type="text/javascript"></script>
