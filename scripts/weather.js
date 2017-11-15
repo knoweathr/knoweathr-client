@@ -99,11 +99,5 @@ const __API_URL__ = 'http://localhost:3000';
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
   }
 
-  // weather.postToDB = data => {
-  //   $.post(`${__API_URL__}/postToDB`, data)
-  //     .then(() => {console.log('postToDB');})
-  //     .catch(console.error(err));
-  // }
-
   module.weather = weather;
 })(app);
