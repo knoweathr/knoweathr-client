@@ -4,7 +4,7 @@ if (window.location.pathname !== '/') {
 }
 
 page('/', ctx => app.mapView.initIndexPage(ctx));
-page('/knoweathr-client/about', ctx => app.mapView.initAboutPage(ctx));
+page('/about', ctx => app.mapView.initAboutPage(ctx));
 page('/login', ctx => app.login.initLoginPage(ctx))
 
 page();
