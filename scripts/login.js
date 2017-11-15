@@ -11,17 +11,16 @@ var app = app || {};
     $('#login').show();
   }
 
-  login.favorites = [];
-  // array of objects
-  // each object has properties: airport_code, month, airport_name, temp_high, temp_low, precipitation, cloud_cover_cond, elevation
+  // login event handler
+  $('#loginbutton').on('click', function(e){
+    e.preventDefault();
+    login.username = $('#username').val().toLowerCase();
+    login.password = $('#password').val().toLowerCase();
 
-  login.toHtml = function() {
-    var template = Handlebars.compile($('#favorites-template').text());
-    return template(this);
-  }
-  // app.login.favorites.forEach(location => $('#renderfavorites').append(location.toHtml()));
-  // Set login.favorites to new array any time anything happens, and re-render toHtml.
+    $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
+      .then(console.log('great success'))
 
+  })
 
   module.login = login;
 })(app);
