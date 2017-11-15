@@ -33,28 +33,6 @@ var app = app || {};
     },
   }
 
-  const airportArr = [
-    {
-      airport_code: 'asdf',
-      lat: '9.338',
-      lon: '32.333',
-    },
-    {
-      airport_code: 'aff',
-      lat: '37.338',
-      lon: '-32.333',
-    },
-    {
-      airport_code: 'afd',
-      lat: '39.338',
-      lon: '-22.3333',
-    },
-  ]
-
-  mapView.createMarkers = () => {
-    //foreach of all markers to place markers on the map.
-  }
-
   mapView.reset = () => {
     $('.container').hide();
   }
@@ -85,9 +63,10 @@ var app = app || {};
       center:latlng,
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
+    // airportArr is a placeholder for the array of filtered airport objects that Joy is currently writing the function for
+    //+++++++++++++++++++++++++++++
     airportArr.forEach(airport => {
       let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
-      // bounds.extend(position);
       let marker = new google.maps.Marker({ //eslint-disable-line
         position: position,
         map: map,
