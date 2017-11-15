@@ -34,7 +34,48 @@ const __API_URL__ = 'http://localhost:3000';
 
   weather.fetchOne = obj => {
     // obj is {airport_code: airport_code, month: month}
-    $.get(`${__API_URL__}/fetchone`, obj)
+
+    let monthnumbers = '';
+    switch(obj.month) {
+    case 'jan':
+      monthnumbers = '01010131';
+      break;
+    case 'feb':
+      monthnumbers = '02010228';
+      break;
+    case 'mar':
+      monthnumbers = '03010331';
+      break;
+    case 'apr':
+      monthnumbers = '04010430';
+      break;
+    case 'may':
+      monthnumbers = '05010531';
+      break;
+    case 'jun':
+      monthnumbers = '06010630';
+      break;
+    case 'jul':
+      monthnumbers = '07010731';
+      break;
+    case 'aug':
+      monthnumbers = '08010831';
+      break;
+    case 'sep':
+      monthnumbers = '09010930';
+      break;
+    case 'oct':
+      monthnumbers = '10011031';
+      break;
+    case 'nov':
+      monthnumbers = '11011130';
+      break;
+    case 'dec':
+      monthnumbers = '12011231';
+      break;
+    }
+
+    $.get(`${__API_URL__}/fetchone`, {'airport_code': obj.airport_code, 'month': obj.month, 'monthnumbers': monthnumbers})
       .then(
         data => {
           console.log(data);
