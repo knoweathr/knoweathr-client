@@ -90,9 +90,10 @@
 }
 
 #firtHeading{
-  font-size: 1em;
+  font-size: 1.8em;
   text-align: center;
   color: black;
+  font-weight: bolder;
   font-family: 'Barlow Condensed', Raleway, sans-serif;
 }
 #addFavorite{
