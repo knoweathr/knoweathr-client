@@ -93,7 +93,6 @@ var app = app || {};
         pinStyle = iconBase + 'sunny.png';
         break;
       }
-
       let marker = new google.maps.Marker({ //eslint-disable-line
         position: position,
         map: map,
