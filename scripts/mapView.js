@@ -56,8 +56,8 @@ var app = app || {};
 
   mapView.initMap = () => {
     $('#map').fadeIn( 3000, function() {
-    $( "span" ).fadeIn( 100 );
-  });
+    // $( "span" ).fadeIn( 100 );
+    });
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
