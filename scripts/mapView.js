@@ -70,22 +70,22 @@ var app = app || {};
 
       switch(cond) {
       case 'mostly sunny':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/sunny.jpg';
+        pinStyle = '../assets/icons/sunny.png';
         break;
       case 'party cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/pCloudy.jpg';
+        pinStyle = '../assets/icons/partly cloudy.png';
         break;
       case 'rain':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/rainy.jpg';
+        pinStyle = '../assets/icons/rainy.png';
         break;
       case 'mostly cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/cloudy.jpg';
+        pinStyle = '../assets/icons/partly cloudy.png';
         break;
       case 'cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/cloudy.jpg';
+        pinStyle = '../assets/icons/cloudy.png';
         break;
       case 'sunny':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/sunny.jpg';
+        pinStyle = '../assets/icons/sunny.png';
         break;
       }
       // switch(airport.feb_cloud_cover_cond) {
