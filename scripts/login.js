@@ -70,6 +70,9 @@ var app = app || {};
             if (data === 'none') {
               console.log('data');
               $('#nosaved').show();
+            } else {
+              login.favorites = data;
+              // call the tohtml method to display data
             }
           }
         }

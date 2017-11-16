@@ -60,7 +60,7 @@ var app = app || {};
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
 
-    module.weather.filteredInfo.forEach(airport => {
+    module.weather.filteredInfo.forEach((airport, index) => {
       // setTimeout(function() {
         let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
 
@@ -98,10 +98,30 @@ var app = app || {};
         id: `Object.values(airport)[0]`
       })
 
-      let contentString = `<div id="content"><div id="siteNotice"></div><h3 id="firtHeading">${Object.values(airport)[1]}</h3><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><div id="addFavorite">Add Favorite</div></div>`;
+      let contentString = `<div id="content"><div id="siteNotice"></div><h3 id="firtHeading">${Object.values(airport)[1]}</h3><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><button class="favoritesbutton" onclick="app.mapView.favoritesHandler(${index})">Add Favorite</button><div id="favmsg${index}"></div></div>`;
       let infowindow = new google.maps.InfoWindow({
         content: contentString
       });
+
+      mapView.favoritesHandler = i => {
+        // console.log(app.weather.filteredInfo[i]);
+        // $.ajax({
+        //   url: `${__API_URL__}/updatefavorites`,
+        //   method: 'PUT',
+        //   data: app.weather.filteredInfo[i];
+        // })
+        $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
+        .then(data => {
+          if (data === 'error'){
+            $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
+          } else {
+            console.log(data)
+          }
+
+        })
+        .catch(err => console.error(err));
+      }
+
       google.maps.event.addListener(marker, 'click', function() {
         // let infowindow = '';
         // infowindow.setContent(contentString);
