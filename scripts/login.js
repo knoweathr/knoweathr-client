@@ -29,6 +29,9 @@ var app = app || {};
       if (window.location.pathname === '/login') {
         page('/');
       }
+      if (window.location.pathname === '/knoweathr-client/login') {
+        page('/knoweathr-client/');
+      }
     }
     else {
       $('#login').addClass('container');
