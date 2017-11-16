@@ -70,22 +70,22 @@ var app = app || {};
 
       switch(cond) {
       case 'mostly sunny':
-        pinStyle = iconBase + 'sunny.jpg';
+        pinStyle = iconBase + 'sunny.png';
         break;
       case 'party cloudy':
-        pinStyle = iconBase + 'pCloudy.jpg';
+        pinStyle = iconBase + 'pCloudy.png';
         break;
       case 'rain':
-        pinStyle = iconBase + 'rainy.jpg';
+        pinStyle = iconBase + 'rainy.png';
         break;
       case 'mostly cloudy':
-        pinStyle = iconBase + 'cloudy.jpg';
+        pinStyle = iconBase + 'cloudy.png';
         break;
       case 'cloudy':
-        pinStyle = iconBase + 'cloudy.jpg';
+        pinStyle = iconBase + 'cloudy.png';
         break;
       case 'sunny':
-        pinStyle = iconBase + 'sunny.jpg';
+        pinStyle = iconBase + 'sunny.png';
         break;
       }
 
