@@ -66,7 +66,6 @@ var app = app || {};
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
     app.weather.filteredInfo.forEach(airport => {
-      console.log('airport: ', airport);
       let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
       let marker = new google.maps.Marker({ //eslint-disable-line
         position: position,
