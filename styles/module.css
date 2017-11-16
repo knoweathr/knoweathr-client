@@ -190,6 +190,12 @@
     width: 655px;
   }
 
+  #noresults {
+    float: right;
+    clear: right;
+    width: 655px;
+  }
+
   #about {
     float: right;
     clear: right;
