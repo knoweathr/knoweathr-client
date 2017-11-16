@@ -1,12 +1,23 @@
 header {
   padding: 1.5em 0;
-  margin-top: 1em 0 1.5em 0;
+  margin: 0 0 1em 0;
   background: #001615;
   background: linear-gradient(45deg, #000, #001615);
   opacity: 0.5;
-  /*border-top: solid 1px #ede3d7;
-  border-bottom: solid 1px #ede3d7;*/
   box-shadow: 1px 1px 2px #722600;
+}
+
+@media only screen and (min-width: 701px) {
+  header {
+    padding: 2em 0;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  #headerwidth, main {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
 
 .main-nav ul {
@@ -19,6 +30,45 @@ header {
   display: inline-block;
   font-size: 1.2em;
 }
+
+.container {
+  margin: 0 0.2em;
+}
+
+fieldset {
+  border: solid 1px #ede3d7;
+  padding: 1em;
+  border-radius: 0.3em;
+  margin: 1em auto;
+  font-size: 0.9em;
+  background: -webkit-linear-gradient(45deg, #ffcfb7, #ffeae0);
+  background: -o-linear-gradient(45deg, #ffcfb7, #ffeae0);
+  background: -moz-linear-gradient(45deg, #ffcfb7, #ffeae0);
+  background: linear-gradient(45deg, #ffcfb7, #ffeae0);
+  opacity: 0.8;
+  box-shadow: 1px 1px 2px #722600;
+  max-width: 700px;
+}
+
+legend {
+  font-weight: 900;
+  font-size: 1.2em;
+  display: none;
+}
+
+@media only screen and (min-width: 411px) {
+  fieldset {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  #tempfieldset {
+    float: right;
+    clear: right;
+  }
+}
+
 
 input, button {
   font-size: 1.1em;
@@ -80,28 +130,15 @@ label {
   color: #333;
 }
 
-fieldset {
-  border: solid 1px #ede3d7;
-  padding: 1em;
-  border-radius: 0.3em;
-  margin: 1em 0.2em;
-  font-size: 0.9em;
-  background: -webkit-linear-gradient(45deg, #ffcfb7, #ffeae0);
-  background: -o-linear-gradient(45deg, #ffcfb7, #ffeae0);
-  background: -moz-linear-gradient(45deg, #ffcfb7, #ffeae0);
-  background: linear-gradient(45deg, #ffcfb7, #ffeae0);
-  opacity: 0.8;
+footer {
+  font-size: 14px;
+  line-height: 17px;
+  height: 50px;
+  background: #001615;
+  background: linear-gradient(45deg, #000, #001615);
+  opacity: 0.5;
   box-shadow: 1px 1px 2px #722600;
-}
-
-legend {
-  font-weight: 900;
-  font-size: 1.2em;
-  display: none;
-}
-
-@media only screen and (min-width: 411px) {
-  fieldset {
-    font-size: 1em;
-  }
+  color: #ede3d7;
+  text-align: center;
+  clear: both;
 }
