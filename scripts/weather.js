@@ -20,7 +20,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
         let degF2 = 'ºF';
         if (ui.values[0] === 32) degF1 = 'ºF or less - ';
         if (ui.values[1] === 100) degF2 = 'ºF or more';
-        console.log(degF1);
         $('#temperature').val(ui.values[0] + degF1 + ui.values[1] + degF2);
       }
     });
@@ -59,7 +58,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
     // 10 is the number of airports in each continent in our JSON file. This count should be updated if we add more airports. This is the janky way of making sure that weather.filteredArr is completely populated before the getFilteredInfo method runs asyncronously.
     if (weather.count === 10) {
-      console.log(weather.filteredArr);
       weather.getFilteredInfo(weather.filteredArr);
     }
   }
@@ -127,7 +125,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     $.get(`${__API_URL__}/fetchone`, {'airport_code': obj.airport_code, 'month': obj.month, 'monthnumbers': monthnumbers})
       .then(
         data => {
-          console.log(obj.airport_code, data);
           weather.filterAirports([obj.airport_code, data, obj.month]);
         },
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
