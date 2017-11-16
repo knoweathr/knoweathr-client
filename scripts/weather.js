@@ -39,14 +39,14 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
   $('#fields').on('submit', function(e) {
     e.preventDefault();
     let continent = $('#continent').find(':selected').val();
-    let month = $('#month').find(':selected').val();
+    weather.month = $('#month').find(':selected').val();
     weather.filteredArr = [];
     weather.count = 0;
     weather.tempMin = $('#slider-range').slider('values', 0);
     weather.tempMax = $('#slider-range').slider('values', 1);
     if (weather.tempMin === 32) weather.tempMin = -100;
     if (weather.tempMax === 100) weather.tempMax = 200;
-    weather.fetchContinent([month, {'continent': continent}]);
+    weather.fetchContinent([weather.month, {'continent': continent}]);
     // weather.getFilteredInfo(weather.filteredArr);
   });
 
