@@ -73,7 +73,7 @@ var app = app || {};
         pinStyle = iconBase + 'sunny.png';
         break;
       case 'party cloudy':
-        pinStyle = iconBase + 'pCloudy.png';
+        pinStyle = iconBase + 'partlycloudy.png';
         break;
       case 'rain':
         pinStyle = iconBase + 'rainy.png';
