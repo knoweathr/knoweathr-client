@@ -15,7 +15,7 @@ The site is deployed at **knoWeathr.com**. Navigate to the site on your desktop 
 To work on the site locally, navigate to the organization https://github.com/knoweathr.  You will need to fork and clone the "knoweathr" repo for the server stack, and the "knoweathr-client" repo for the client stack.
 
 ## Dependancies
-Dependancies are noted in our package.json file in the server stack.  To run the site locally, you will need to install express, fileservice, cors, bodyparser, page.js, postgresql and superagent.
+Dependencies' are noted in our package.json file in the server stack.  To run the site locally, you will need to install express, file-system, cors, bodyparser, page.js, postgres, SQL and superagent.
 
 ## Architecture
 The site uses MVC architecture, and SMACSS best practices for layout and design.  The server stack includes a server.js file to create tables and manage our get requests.  Our airports table is seeded by an airports.json file, serving a curated list of airports that we can incorporate in our API calls.

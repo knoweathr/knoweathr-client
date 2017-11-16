@@ -61,7 +61,6 @@ var app = app || {};
     $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
       .then(
         data => {
-          console.log(data);
           if (data === 'error'){
             $('#validationmsg').text('The username and password do not match.')
           } else {
@@ -70,6 +69,9 @@ var app = app || {};
             if (data === 'none') {
               console.log('data');
               $('#nosaved').show();
+            } else {
+              login.favorites = data;
+              // call the tohtml method to display data
             }
           }
         }
