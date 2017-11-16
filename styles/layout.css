@@ -133,7 +133,7 @@ label {
 footer {
   font-size: 14px;
   line-height: 17px;
-  height: 50px;
+  max-height: 165px;
   background: #001615;
   background: linear-gradient(45deg, #000, #001615);
   opacity: 0.5;
@@ -141,4 +141,9 @@ footer {
   color: #ede3d7;
   text-align: center;
   clear: both;
+  padding-bottom: 20px;
+}
+
+#copywrite {
+  vertical-align: middle;
 }
