@@ -20,7 +20,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
         let degF2 = 'ºF';
         if (ui.values[0] === 32) degF1 = 'ºF or less - ';
         if (ui.values[1] === 100) degF2 = 'ºF or more';
-        console.log(degF1);
         $('#temperature').val(ui.values[0] + degF1 + ui.values[1] + degF2);
       }
     });
@@ -38,15 +37,16 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   $('#fields').on('submit', function(e) {
     e.preventDefault();
+    $('#noresults').hide();
     let continent = $('#continent').find(':selected').val();
-    let month = $('#month').find(':selected').val();
+    weather.month = $('#month').find(':selected').val();
     weather.filteredArr = [];
     weather.count = 0;
     weather.tempMin = $('#slider-range').slider('values', 0);
     weather.tempMax = $('#slider-range').slider('values', 1);
     if (weather.tempMin === 32) weather.tempMin = -100;
     if (weather.tempMax === 100) weather.tempMax = 200;
-    weather.fetchContinent([month, {'continent': continent}]);
+    weather.fetchContinent([weather.month, {'continent': continent}]);
     // weather.getFilteredInfo(weather.filteredArr);
   });
 
@@ -58,13 +58,13 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
     // 10 is the number of airports in each continent in our JSON file. This count should be updated if we add more airports. This is the janky way of making sure that weather.filteredArr is completely populated before the getFilteredInfo method runs asyncronously.
     if (weather.count === 10) {
-      console.log(weather.filteredArr);
       weather.getFilteredInfo(weather.filteredArr);
     }
   }
 
   weather.getFilteredInfo = (arr, callback) => {
     // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
+    if (arr.length === 0) $('#noresults').show();
     weather.filteredInfo = [];
     arr.forEach(el => {
       $.get(`${__API_URL__}/getfilteredinfo`, {'airport_code': el[0], 'month': el[1]})
@@ -125,7 +125,6 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     $.get(`${__API_URL__}/fetchone`, {'airport_code': obj.airport_code, 'month': obj.month, 'monthnumbers': monthnumbers})
       .then(
         data => {
-          console.log(obj.airport_code, data);
           weather.filterAirports([obj.airport_code, data, obj.month]);
         },
         err => console.error(err.status, err.statusText, 'is the way my stuff is broken'));
