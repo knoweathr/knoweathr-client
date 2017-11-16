@@ -77,3 +77,7 @@
 .icon-github:before {
 	content: "\e907";
 }
+
+#wu {
+	max-width: 90px;
+}
