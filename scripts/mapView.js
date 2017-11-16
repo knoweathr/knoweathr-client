@@ -49,7 +49,11 @@ var app = app || {};
   }
 
   mapView.initMap = () => {
-    $('#map').fadeIn(1000);
+    (() => {
+      $('#map').fadeIn({duration: 1700, queue: false})
+      $('#map').css({top:1000})
+        .animate({top:10}, 1200);
+    })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
