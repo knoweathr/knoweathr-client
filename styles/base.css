@@ -4,22 +4,17 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background: #fdee92 url("../bg.jpg") no-repeat fixed;
+  background-size: cover;
+  color: #000;
   font-family: Raleway, sans-serif;
   line-height: 1.3em;
   word-spacing: 0.1em;
   letter-spacing: 0.05em;
-  /*background: -webkit-radial-gradient(#8fcd9a, #d9fcd3);
-  background: -o-radial-gradient(#8fcd9a, #d9fcd3);
-  background: -moz-radial-gradient(#8fcd9a, #d9fcd3);
-  background: radial-gradient(#8fcd9a, #d9fcd3);*/
-  background: #fdee92 url("../bg.jpg") no-repeat fixed;
-  background-size: cover;
-  color: #000;
 }
 
 #wrapper {
   width: 100%;
-  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -45,7 +40,12 @@ h2 {
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 15px;
-  margin-top: 20px;
+  margin-top: 0.5em;
+}
+
+p {
+  font-size: 0.9em;
+  margin: 0.5em 0 2em 0;
 }
 
 @media only screen and (min-width: 411px) {
@@ -55,6 +55,30 @@ h2 {
 
   [class^="icon-"], [class*=" icon-"] {
     font-size: 32px;
+  }
+}
+
+@media only screen and (min-width: 701px) {
+  h1 {
+    font-size: 3.4em;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (min-width: 1001px) {
+  h1 {
+    font-size: 4em;
   }
 }
 

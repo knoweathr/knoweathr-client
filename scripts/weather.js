@@ -8,7 +8,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   const weather = {};
 
-  weather.slider = () => {
+  (weather.slider = () => {
     $('#slider-range').slider({
       range: true,
       min: 32,
@@ -29,8 +29,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     // // Calling min and max
     // $('#slider-range').slider('values', 0);
     // $('#slider-range').slider('values', 1);
-  }
-  weather.slider();
+  })();
 
   $('#continent').on('change', event => {
     weather.continentSelection = event.target.value;
