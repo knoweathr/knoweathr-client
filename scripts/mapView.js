@@ -94,15 +94,15 @@ var app = app || {};
         map: map,
         animation: google.maps.Animation.DROP,
         title: airport.name,
-        // icon: pinStyle
-        id: Object.values(airport)[0]
+        icon: pinStyle,
+        id: `Object.values(airport)[0]`
       })
-      
-      let contentString = `<div id="content"><div id="siteNotice"></div><h1 id="firtHeading">${Object.values(airport)[1]}</h1><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><div id="addFavorite">Add Favorite</div></div>`;
+
+      let contentString = `<div id="content"><div id="siteNotice"></div><h3 id="firtHeading">${Object.values(airport)[1]}</h3><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><div id="addFavorite">Add Favorite</div></div>`;
       let infowindow = new google.maps.InfoWindow({
         content: contentString
       });
-      $('#map').on('click', marker, function() {
+      google.maps.event.addListener(marker, 'click', function() {
         // let infowindow = '';
         // infowindow.setContent(contentString);
         infowindow.open($mapDiv, marker);
