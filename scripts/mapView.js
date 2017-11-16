@@ -70,24 +70,249 @@ var app = app || {};
     module.weather.filteredInfo.forEach(airport => {
       // setTimeout(function() {
         let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
-        
+
         //here begins the attempt to switch into whatever month's weather is associated with the airport object
-        // let airportProperty = `${module.weather.month}_cloud_cover_cond`;
-        // let pinStyle = '';
-        // switch(airport[airportProperty].value) {
-        //   case 'mostly sunny':
-        //     pinStyle = '../assets/icons/sunny.jpg';
-        //     break;
-        //   case 'party cloudy':
-        //     pinStyle = '../assets/icons/pCloudy.jpg';
-        //     break;
-        //   case 'rain':
-        //     pinStyle = '../assets/icons/rainy.jpg';
-        //     break;
-        //   case 'mostly cloudy':
-        //     pinStyle = '../assets/icons/cloudy.jpg';
-        //     break;
-        //   };
+      let pinStyle = '';
+      switch(airport.jan_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.feb_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.mar_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.apr_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.may_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.jun_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.jul_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.aug_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.sep_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.oct_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.nov_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
+      switch(airport.dec_cloud_cover_cond) {
+      case 'mostly sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      case 'party cloudy':
+        pinStyle = '../assets/icons/pCloudy.jpg';
+        break;
+      case 'rain':
+        pinStyle = '../assets/icons/rainy.jpg';
+        break;
+      case 'mostly cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'cloudy':
+        pinStyle = '../assets/icons/cloudy.jpg';
+        break;
+      case 'sunny':
+        pinStyle = '../assets/icons/sunny.jpg';
+        break;
+      };
           //here ends the aiport weather switch
 
       let marker = new google.maps.Marker({ //eslint-disable-line
@@ -95,10 +320,10 @@ var app = app || {};
           map: map,
           animation: google.maps.Animation.DROP,
           title: airport.name,
-          // icon: pinStyle
+          icon: pinStyle
         })
+        console.log(airport.jul_cloud_cover_cond);
         console.log(airport);
-
       // }, airport * 1000)
 
       // console.log(airport[may_cloud_cover_cond]);
