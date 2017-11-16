@@ -87,7 +87,6 @@
   margin: 1.5em auto 0.2em auto;
   box-shadow: 1px 1px 2px #722600;
   max-width: 700px;
-  font-size: 1em;
 }
 
 #noresults {
@@ -200,5 +199,6 @@
   #map {
     float: right;
     clear: right;
+    width: 655px;
   }
 }
