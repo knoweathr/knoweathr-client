@@ -8,7 +8,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   const weather = {};
 
-  (weather.slider = () => {
+  weather.slider = () => {
     $('#slider-range').slider({
       range: true,
       min: 32,
@@ -29,7 +29,8 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
     // // Calling min and max
     // $('#slider-range').slider('values', 0);
     // $('#slider-range').slider('values', 1);
-  })();
+  }
+  weather.slider();
 
   $('#continent').on('change', event => {
     weather.continentSelection = event.target.value;
@@ -37,15 +38,16 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   $('#fields').on('submit', function(e) {
     e.preventDefault();
+    $('#noresults').hide();
     let continent = $('#continent').find(':selected').val();
-    let month = $('#month').find(':selected').val();
+    weather.month = $('#month').find(':selected').val();
     weather.filteredArr = [];
     weather.count = 0;
     weather.tempMin = $('#slider-range').slider('values', 0);
     weather.tempMax = $('#slider-range').slider('values', 1);
     if (weather.tempMin === 32) weather.tempMin = -100;
     if (weather.tempMax === 100) weather.tempMax = 200;
-    weather.fetchContinent([month, {'continent': continent}]);
+    weather.fetchContinent([weather.month, {'continent': continent}]);
     // weather.getFilteredInfo(weather.filteredArr);
   });
 
@@ -64,6 +66,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   weather.getFilteredInfo = (arr, callback) => {
     // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
+    if (arr.length === 0) $('#noresults').show();
     weather.filteredInfo = [];
     arr.forEach(el => {
       $.get(`${__API_URL__}/getfilteredinfo`, {'airport_code': el[0], 'month': el[1]})
