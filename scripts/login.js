@@ -35,7 +35,7 @@ var app = app || {};
     }
     else {
       $('#login').addClass('container');
-      if (window.location.pathname != '/login') $('#login').hide();
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/knoweathr-client/login') $('#login').hide();
       $('#logintab').show();
       $('#loginsubtext').show();
     }
