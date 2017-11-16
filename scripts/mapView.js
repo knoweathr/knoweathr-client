@@ -49,7 +49,11 @@ var app = app || {};
   }
 
   mapView.initMap = () => {
-    $('#map').fadeIn(1000);
+    (() => {
+      $('#map').fadeIn({duration: 1700, queue: false})
+      $('#map').css({top:1000})
+        .animate({top:10}, 1200);
+    })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
     let latlng = new google.maps.LatLng(mapView.continents[selection].lat, mapView.continents[selection].lng);//eslint-disable-line
@@ -97,7 +101,7 @@ var app = app || {};
         // icon: pinStyle
         id: Object.values(airport)[0]
       })
-      
+
       let contentString = `<div id="content"><div id="siteNotice"></div><h1 id="firtHeading">${Object.values(airport)[1]}</h1><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><div id="addFavorite">Add Favorite</div></div>`;
       let infowindow = new google.maps.InfoWindow({
         content: contentString
