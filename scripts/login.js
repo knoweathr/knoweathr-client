@@ -61,12 +61,14 @@ var app = app || {};
     $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
       .then(
         data => {
+          console.log(data);
           if (data === 'error'){
             $('#validationmsg').text('The username and password do not match.')
           } else {
             $('#loginform').text(`Welcome, ${login.username.toUpperCase()}`);
             $('#favorites').show();
-            if (!data){
+            if (data === 'none') {
+              console.log('data');
               $('#nosaved').show();
             }
           }
