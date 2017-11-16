@@ -66,25 +66,26 @@ var app = app || {};
 
       let pinStyle = '';
       let cond = Object.values(airport)[9];
+      let iconBase = 'https://knoweathr.github.io/knoweathr-client/assets/icons/';
 
       switch(cond) {
       case 'mostly sunny':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/sunny.jpg';
+        pinStyle = iconBase + 'sunny.png';
         break;
-      case 'party cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/pCloudy.jpg';
+      case 'partly cloudy':
+        pinStyle = iconBase + 'partlycloudy.png';
         break;
       case 'rain':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/rainy.jpg';
+        pinStyle = iconBase + 'rainy.png';
         break;
       case 'mostly cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/cloudy.jpg';
+        pinStyle = iconBase + 'cloudy.png';
         break;
       case 'cloudy':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/cloudy.jpg';
+        pinStyle = iconBase + 'cloudy.png';
         break;
       case 'sunny':
-        pinStyle = 'https://knoweathr.github.io/knoweathr-client/assets/icons/sunny.jpg';
+        pinStyle = iconBase + 'sunny.png';
         break;
       }
 
@@ -96,7 +97,7 @@ var app = app || {};
         // icon: pinStyle
         id: Object.values(airport)[0]
       })
-
+      
       let contentString = `<div id="content"><div id="siteNotice"></div><h1 id="firtHeading">${Object.values(airport)[1]}</h1><div class="attribute">Expected high temp: ${Object.values(airport)[6]}</div><div class="attribute">Expected low temp: ${Object.values(airport)[7]}</div><div class="attribute">Forecast: ${Object.values(airport)[9]}</div><div class="attribute">Latitude: ${Object.values(airport)[3]}</div><div class="attribute">Longitude: ${Object.values(airport)[4]}</div><div id="addFavorite">Add Favorite</div></div>`;
       let infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -106,21 +107,6 @@ var app = app || {};
         // infowindow.setContent(contentString);
         infowindow.open($mapDiv, marker);
       });
-      console.log(Object.values(airport)[8]);
-      console.log(Object.values(airport)[9]);
-      // console.log(Object.values(airport)[2]);
-      // console.log(Object.values(airport)[3]);
-      // console.log(Object.values(airport)[4]);
-      // console.log(Object.values(airport)[5]);
-      // console.log(Object.values(airport)[6]);
-      // console.log(Object.values(airport)[7]);
-      console.log("here are our our attributes");
-      // console.log(airport.jul_cloud_cover_cond);
-      // console.log(Object.values(airport)[9]);
-      // console.log(Object.values(airport)[7]);
-      // }, airport * 1000)
-
-      // console.log(airport[may_cloud_cover_cond]);
     })
   }
 
