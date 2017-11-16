@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway|Barlow+Condensed|Spectral+SC");
 
+* {
+  box-siding: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -11,11 +21,13 @@ body {
   line-height: 1.3em;
   word-spacing: 0.1em;
   letter-spacing: 0.05em;
+  height: 100%;
 }
 
 #wrapper {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto -50px auto;
+  min-height: 100%;
 }
 
 a {

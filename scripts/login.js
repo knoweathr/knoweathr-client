@@ -20,17 +20,19 @@ var app = app || {};
 
   login.checkWindowSize = () => {
     let w = window.innerWidth;
-    console.log(w);
     if (w > 1000) {
       $('#login').removeClass('container');
       $('#login').show();
       $('#logintab').hide();
       $('#loginsubtext').hide();
       // add if on login page, redirect to index
+      if (window.location.pathname === '/login') {
+        page('/');
+      }
     }
     else {
       $('#login').addClass('container');
-      $('#login').hide();
+      if (window.location.pathname != '/login') $('#login').hide();
       $('#logintab').show();
       $('#loginsubtext').show();
     }
