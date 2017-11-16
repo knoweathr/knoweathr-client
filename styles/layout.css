@@ -129,3 +129,16 @@ label {
   font-weight: 600;
   color: #333;
 }
+
+footer {
+  font-size: 14px;
+  line-height: 17px;
+  height: 50px;
+  background: #001615;
+  background: linear-gradient(45deg, #000, #001615);
+  opacity: 0.5;
+  box-shadow: 1px 1px 2px #722600;
+  color: #ede3d7;
+  text-align: center;
+  clear: both;
+}

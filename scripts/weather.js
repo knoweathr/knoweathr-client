@@ -38,6 +38,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   $('#fields').on('submit', function(e) {
     e.preventDefault();
+    $('#noresults').hide();
     let continent = $('#continent').find(':selected').val();
     weather.month = $('#month').find(':selected').val();
     weather.filteredArr = [];
@@ -65,6 +66,7 @@ const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
 
   weather.getFilteredInfo = (arr, callback) => {
     // arr is an array of arrays. arr[0] is airport codes that meet the temperature criteria and arr[1] is the month requested.
+    if (arr.length === 0) $('#noresults').show();
     weather.filteredInfo = [];
     arr.forEach(el => {
       $.get(`${__API_URL__}/getfilteredinfo`, {'airport_code': el[0], 'month': el[1]})

@@ -49,7 +49,7 @@
         </div>
       </header>
 
-      <main>
+      <main class="clearfix">
         <div id="login" class="container">
           <fieldset id="loginfieldset"><legend>Login</legend>
             <form id="loginform">
@@ -126,10 +126,10 @@
             <!-- insert our map reference here. Hide Map until user runs a search. -->
           </fieldset>
 
-          <div id="noresults">
+          <fieldset id="noresults">
             <h2>No results</h2>
             <p>Your search did not return any results. Please expand your temperature range and try again.</p>
-          </div>
+          </fieldset>
 
         </div> <!-- #home container -->
 
@@ -145,7 +145,10 @@
           <img src="assets/will-about.jpg" id="will"></img><p>Will is tall.</p>
         </div> <!-- #about section -->
       </main>
+      <div class="push"></div>
+
     </div> <!-- #wrapper -->
+    <footer><br />&copy; knoWeather 2017</footer>
 
 
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
