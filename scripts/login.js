@@ -35,7 +35,10 @@ var app = app || {};
     }
     else {
       $('#login').addClass('container');
-      if (window.location.pathname !== '/login' && window.location.pathname !== '/knoweathr-client/login') $('#login').hide();
+      if (window.location.pathname === '/') $('#login').hide();
+      else if (window.location.pathname === '/knoweathr-client/') $('#login').hide();
+      else if (window.location.pathname === '/about') $('#login').hide();
+      else if (window.location.pathname === '/knoweathr-client/about') $('#login').hide();
       $('#logintab').show();
       $('#loginsubtext').show();
     }
