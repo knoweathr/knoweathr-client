@@ -56,7 +56,7 @@ var app = app || {};
 
   mapView.initMap = () => {
     $('#map').fadeIn( 3000, function() {
-    $( "span" ).fadeIn( 100 );
+    $( 'span' ).fadeIn( 100 );
   });
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
@@ -68,13 +68,40 @@ var app = app || {};
     };
     var map = new google.maps.Map($mapDiv, mapOptions);//eslint-disable-line
     module.weather.filteredInfo.forEach(airport => {
+      // setTimeout(function() {
+        let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
+        
+        //here begins the attempt to switch into whatever month's weather is associated with the airport object
+        // let airportProperty = `${module.weather.month}_cloud_cover_cond`;
+        // let pinStyle = '';
+        // switch(airport[airportProperty].value) {
+        //   case 'mostly sunny':
+        //     pinStyle = '../assets/icons/sunny.jpg';
+        //     break;
+        //   case 'party cloudy':
+        //     pinStyle = '../assets/icons/pCloudy.jpg';
+        //     break;
+        //   case 'rain':
+        //     pinStyle = '../assets/icons/rainy.jpg';
+        //     break;
+        //   case 'mostly cloudy':
+        //     pinStyle = '../assets/icons/cloudy.jpg';
+        //     break;
+        //   };
+          //here ends the aiport weather switch
 
-      let position = new google.maps.LatLng(parseFloat(airport.lat), parseFloat(airport.lon)); //eslint-disable-line
       let marker = new google.maps.Marker({ //eslint-disable-line
-        position: position,
-        map: map,
-        title: airport.name,
-      })
+          position: position,
+          map: map,
+          animation: google.maps.Animation.DROP,
+          title: airport.name,
+          // icon: pinStyle
+        })
+        console.log(airport);
+
+      // }, airport * 1000)
+
+      // console.log(airport[may_cloud_cover_cond]);
     })
   }
 
