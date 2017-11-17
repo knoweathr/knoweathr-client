@@ -14,7 +14,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #fdee92 url("../bg.jpg") no-repeat fixed;
+  background: #fdee92 url("https://knoweathr.github.io/knoweathr-client/bg.jpg") no-repeat fixed;
   background-size: cover;
   color: #000;
   font-family: Raleway, sans-serif;
