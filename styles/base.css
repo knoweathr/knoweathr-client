@@ -31,8 +31,10 @@ body {
 }
 
 a {
-  color: inherit;
+  color: #888;
   text-decoration: none;
+  cursor: hand;
+  font-weight: 900;
 }
 
 h1 {

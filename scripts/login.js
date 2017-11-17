@@ -28,6 +28,14 @@ var app = app || {};
         </ul>
       `);
     });
+    if ($('#renderfavorites ul').length <= 2) {
+      $('#showmore').hide();
+      $('#showless').hide();
+    }
+    if ($('#renderfavorites ul').length > 2) {
+      $('#showmore').show();
+      $('#showless').hide();
+    }
     $('#favorites').show();
     login.checkWindowSize();
   }
@@ -61,13 +69,13 @@ var app = app || {};
 
       $('#renderfavorites ul:nth-of-type(n+3)').hide();
 
-      if ($('#renderfavorites ul:nth-of-type(3)')) {
+      if ($('#renderfavorites ul').length > 2) {
         $('#showmore').show();
         $('#showless').hide();
       }
-      else {
+      if ($('#renderfavorites ul').length <= 2) {
         $('#showmore').hide();
-        $('#showless').show();
+        $('#showless').hide();
       }
 
       $('#showmore').off('click');
@@ -104,6 +112,7 @@ var app = app || {};
   login.initLoginPage = () => {
     module.mapView.reset();
     $('#login').show();
+    $('#nosaved').hide();
   }
 
   // login event handler
@@ -119,11 +128,14 @@ var app = app || {};
           if (data === 'error'){
             $('#validationmsg').text('The username and password do not match.')
           } else {
-            $('#loginform').html(`<br />Welcome, ${login.username.toUpperCase()}!`);
+            $('#loginform').html(`<br />Welcome, ${login.username.toUpperCase()}! <br /><a href="#" id="refresh">log out</a>`);
+            $('#refresh').off('click');
+            $('#refresh').on('click', () => window.location.reload());
             $('#favorites').show();
             if (data === 'none') {
               $('#nosaved').show();
             } else {
+              $('#nosaved').hide();
               login.favorites = JSON.parse(data);
               login.toHtml(login.favorites);
             }

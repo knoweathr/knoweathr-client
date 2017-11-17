@@ -113,7 +113,7 @@ var app = app || {};
         $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
           .then(data => {
             if (data === 'error'){
-              $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
+              $(`#favmsg${i}`).text('Please login to add favorites!');
             } else {
               if (data === 'empty'){
                 app.login.favorites.push(app.weather.filteredInfo[i]);
@@ -126,6 +126,14 @@ var app = app || {};
                   .catch(err => console.error(err));
                 $(`#favmsg${i}`).text('Added to favorites! ');
                 if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
+                if ($('#renderfavorites ul').length <= 2) {
+                  $('#showmore').hide();
+                  $('#showless').hide();
+                }
+                if ($('#renderfavorites ul').length > 2) {
+                  $('#showmore').show();
+                  $('#showless').hide();
+                }
               } else {
                 if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
                   $(`#favmsg${i}`).text('You have already added this favorite.');
@@ -141,6 +149,14 @@ var app = app || {};
                     .catch(err => console.error(err));
                   $(`#favmsg${i}`).text('Added to favorites!');
                   if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
+                  if ($('#renderfavorites ul').length <= 2) {
+                    $('#showmore').hide();
+                    $('#showless').hide();
+                  }
+                  if ($('#renderfavorites ul').length > 2) {
+                    $('#showmore').show();
+                    $('#showless').hide();
+                  }
                 }
               }
             }
