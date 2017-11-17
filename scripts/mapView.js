@@ -52,8 +52,10 @@ var app = app || {};
     (() => {
       $('#map').fadeIn({duration: 500, queue: false})
       $('#map').css({top:1000}).animate({top:10}, 500);
-      $('html').animate({ scrollTop: 1900 }, 1800);
-      return false;
+      $('html,body').animate({ scrollTop: 1000}, 1800);
+      setTimeout(function () {
+        $('html,body').stop()
+      }, 900);
     })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
@@ -122,7 +124,8 @@ var app = app || {};
                   data: obj,
                 })
                   .catch(err => console.error(err));
-                $(`#favmsg${i}`).text('Added to favorites!');
+                $(`#favmsg${i}`).text('Added to favorites! ');
+                if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
               } else {
                 if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
                   $(`#favmsg${i}`).text('You have already added this favorite.');
@@ -137,6 +140,7 @@ var app = app || {};
                   })
                     .catch(err => console.error(err));
                   $(`#favmsg${i}`).text('Added to favorites!');
+                  if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
                 }
               }
             }

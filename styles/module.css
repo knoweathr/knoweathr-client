@@ -84,7 +84,7 @@
   height: 550px;
   border: solid 1px;
   border-radius: 0.3em;
-  margin: 1.5em auto;
+  margin: 0 auto 1.5em;
   box-shadow: 1px 1px 2px #722600;
   max-width: 700px;
 }
@@ -217,6 +217,7 @@
     float: right;
     clear: right;
     width: 655px;
+    min-height: 100%;
   }
 
   #noresults {
@@ -241,4 +242,23 @@
 .push {
   height: 50px;
   clear: both;
+}
+
+#showmore, #showless {
+  display: none;
+}
+
+.icon-github {
+  font-size: 1.2em;
+  color: #555;
+  border: none;
+  text-shadow: none;
+}
+
+.icon-github:hover {
+  color: #000;
+}
+
+.bio {
+  text-align: center;
 }
