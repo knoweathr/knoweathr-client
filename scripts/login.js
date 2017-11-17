@@ -28,14 +28,6 @@ var app = app || {};
         </ul>
       `);
     });
-    if ($('#renderfavorites ul').length <= 2) {
-      $('#showmore').hide();
-      $('#showless').hide();
-    }
-    if ($('#renderfavorites ul').length > 2) {
-      $('#showmore').show();
-      $('#showless').hide();
-    }
     $('#favorites').show();
     login.checkWindowSize();
   }
@@ -72,10 +64,15 @@ var app = app || {};
       if ($('#renderfavorites ul').length > 2) {
         $('#showmore').show();
         $('#showless').hide();
+        $('#nosaved').hide();
       }
       if ($('#renderfavorites ul').length <= 2) {
         $('#showmore').hide();
         $('#showless').hide();
+        $('#nosaved').hide();
+      }
+      if (!$('#renderfavorites ul').length) {
+        $('#nosaved').show();
       }
 
       $('#showmore').off('click');
