@@ -89,13 +89,14 @@
   max-width: 700px;
 }
 
-#firtHeading{
+#firstHeading{
   font-size: 1.8em;
   text-align: center;
   color: black;
   font-weight: bolder;
   font-family: 'Barlow Condensed', Raleway, sans-serif;
 }
+
 #addFavorite{
   font-size: 1em;
   text-align: center;
@@ -103,7 +104,6 @@
   font-weight: bolder;
   font-family: 'Barlow Condensed', Raleway, sans-serif;
 }
-
 
 #noresults {
   border: solid 1px #ede3d7;
@@ -166,8 +166,8 @@
 
 .savedlocations {
   background: #ffeae0;
-  padding: 0.5em;
-  border: solid 1px #444;
+  padding: 0.5em 0.5em 0 0.5em;
+  border: solid 1px #666;
   border-radius: 0.5em;
   margin-bottom: 1em;
 }
@@ -176,12 +176,25 @@
   text-align: center;
   font-weight: 900;
   font-size: 1.2em;
+  line-height: 32px;
 }
 
 .savedlocations li {
-  text-align: left;
+  line-height: 16px;
+  text-align: center;
   font-weight: 100;
   padding: 0.2em;
+}
+
+@media only screen and (min-width: 1001px) {
+  .savedlocations li {
+    text-align: left;
+    font-size: 0.9em;
+  }
+
+  .savedlocationheader {
+    line-height: 24px;
+  }
 }
 
 #nosaved {
