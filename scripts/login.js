@@ -71,7 +71,7 @@ var app = app || {};
         $('#showless').hide();
         $('#nosaved').hide();
       }
-      if (!$('#renderfavorites ul').length) {
+      if ($('#renderfavorites ul').length === 0) {
         $('#nosaved').show();
       }
 
@@ -107,10 +107,9 @@ var app = app || {};
   $(window).resize(login.checkWindowSize);
 
   login.initLoginPage = () => {
+    login.checkWindowSize();
     module.mapView.reset();
     $('#login').show();
-    $('#nosaved').hide();
-    login.checkWindowSize();
   }
 
   // login event handler
