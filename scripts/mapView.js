@@ -127,7 +127,7 @@ var app = app || {};
                 $(`#favmsg${i}`).text('Added to favorites! ');
                 $('#showmore').hide();
                 if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
-                if ($('#renderfavorites ul:nth-of-type(3)')) {
+                if ($('#renderfavorites ul').length > 2) {
                   $('#showmore').show();
                   $('#showless').hide();
                 }
@@ -147,7 +147,7 @@ var app = app || {};
                   $(`#favmsg${i}`).text('Added to favorites!');
                   if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
                   $('#showmore').hide();
-                  if ($('#renderfavorites ul:nth-of-type(3)')) {
+                  if ($('#renderfavorites ul').length > 2) {
                     $('#showmore').show();
                     $('#showless').hide();
                   }
