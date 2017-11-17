@@ -113,7 +113,7 @@ var app = app || {};
         $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
           .then(data => {
             if (data === 'error'){
-              $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
+              $(`#favmsg${i}`).text('Please login to add favorites!');
             } else {
               if (data === 'empty'){
                 app.login.favorites.push(app.weather.filteredInfo[i]);
