@@ -28,7 +28,10 @@ var app = app || {};
         </ul>
       `);
     });
-    $('#showmore').hide();
+    if ($('#renderfavorites ul').length <= 2) {
+      $('#showmore').hide();
+      $('#showless').hide();
+    }
     if ($('#renderfavorites ul').length > 2) {
       $('#showmore').show();
       $('#showless').hide();
