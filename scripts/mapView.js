@@ -52,7 +52,10 @@ var app = app || {};
     (() => {
       $('#map').fadeIn({duration: 500, queue: false})
       $('#map').css({top:1000}).animate({top:10}, 500);
-      $('html').animate({ scrollTop: 1900 }, 1800);
+      $('html,body').animate({ scrollTop: 1000}, 1800);
+      setTimeout(function () {
+        $('html,body').stop()
+      }, 900);
     })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
