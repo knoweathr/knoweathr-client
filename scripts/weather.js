@@ -1,8 +1,8 @@
 'use strict';
 
 var app = app || {};
-// const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
-const __API_URL__ = 'http://localhost:3000';
+const __API_URL__ = 'https://knoweathr.herokuapp.com'; //eslint-disable-line
+// const __API_URL__ = 'http://localhost:3000';
 
 (function(module) {
 
@@ -25,9 +25,6 @@ const __API_URL__ = 'http://localhost:3000';
     });
     $('#temperature').val($('#slider-range').slider('values', 0) +
       'ºF or less - ' + $('#slider-range').slider('values', 1) + 'ºF or more');
-    // // Calling min and max
-    // $('#slider-range').slider('values', 0);
-    // $('#slider-range').slider('values', 1);
   }
   weather.slider();
 
@@ -47,7 +44,6 @@ const __API_URL__ = 'http://localhost:3000';
     if (weather.tempMin === 32) weather.tempMin = -100;
     if (weather.tempMax === 100) weather.tempMax = 200;
     weather.fetchContinent([weather.month, {'continent': continent}]);
-    // weather.getFilteredInfo(weather.filteredArr);
   });
 
   weather.filterAirports = arr => {
@@ -77,7 +73,6 @@ const __API_URL__ = 'http://localhost:3000';
         )
         .then(() => app.mapView.initMap());
     })
-    // app.mapView.initMap();
   }
 
   weather.fetchOne = obj => {
@@ -131,7 +126,6 @@ const __API_URL__ = 'http://localhost:3000';
   }
 
   // arr is an array of [month, {continent: continent}]
-  // app.weather.fetchContinent([jan, {continent: 'northamerica'}])
   weather.fetchContinent = arr => {
     $.get(`${__API_URL__}/fetchcontinent`, arr[1])
       .then(
