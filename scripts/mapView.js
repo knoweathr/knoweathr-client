@@ -110,30 +110,15 @@ var app = app || {};
       mapView.favoritesHandler = i => {
         // console.log(app.weather.filteredInfo[i]);
         $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
-        .then(data => {
-          if (data === 'error'){
-            $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
-          } else {
-            if (data === 'empty'){
-              app.login.favorites.push(app.weather.filteredInfo[i]);
-              let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
-              $.ajax({
-                url: `${__API_URL__}/updatefavorites`,
-                method: 'PUT',
-                data: obj,
-              })
-              .catch(err => console.error(err));
-              $(`#favmsg${i}`).text('Added to favorites!');
+          .then(data => {
+            if (data === 'error'){
+              $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
             } else {
-              if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
-                $(`#favmsg${i}`).text('You have already added this favorite.');
-              } else {
-                let returnedFavs = JSON.parse(data);
-                if (typeof app.login.favorites === 'string') {
-                  app.login.favorites = JSON.parse(app.login.favorites);
-                }
-                // console.log(app.weather.filteredInfo[i]);
-                // console.log(returnedFavs);
+              if (data === 'empty'){
+                console.log(typeof app.login.favorites);
+                // if (typeof app.login.favorites === 'string') {
+                //   app.login.favorites = JSON.parse(app.login.favorites);
+                // }
                 app.login.favorites.push(app.weather.filteredInfo[i]);
                 let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
                 $.ajax({
@@ -141,16 +126,36 @@ var app = app || {};
                   method: 'PUT',
                   data: obj,
                 })
-                .catch(err => console.error(err));
+                  .catch(err => console.error(err));
                 $(`#favmsg${i}`).text('Added to favorites!');
+              } else {
+                if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
+                  $(`#favmsg${i}`).text('You have already added this favorite.');
+                } else {
+                  console.log(data);
+                  let returnedFavs = JSON.parse(data);
+                  // if (typeof app.login.favorites === 'string') {
+                  //   app.login.favorites = JSON.parse(app.login.favorites);
+                  // }
+                  // console.log(app.weather.filteredInfo[i]);
+                  // console.log(returnedFavs);
+                  app.login.favorites.push(app.weather.filteredInfo[i]);
+                  let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
+                  $.ajax({
+                    url: `${__API_URL__}/updatefavorites`,
+                    method: 'PUT',
+                    data: obj,
+                  })
+                    .catch(err => console.error(err));
+                  $(`#favmsg${i}`).text('Added to favorites!');
+                }
               }
             }
-          }
-        })
-        .then(
-          //render
-      )
-        .catch(err => console.error(err));
+          })
+          .then(() => {
+            app.login.toHtml(app.login.favorites);
+          })
+          .catch(err => console.error(err));
       }
 
       google.maps.event.addListener(marker, 'click', function() {
