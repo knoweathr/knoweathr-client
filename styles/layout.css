@@ -69,7 +69,6 @@ legend {
   }
 }
 
-
 input, button {
   font-size: 1.1em;
   padding: 0.6em;
@@ -119,9 +118,13 @@ input[type=submit], button {
   margin: 0.5em 0.2em 1em 0.2em;
 }
 
-input[type=submit]:active {
+input[type=submit]:active, button:active {
   color: #fff;
   background: #333;
+}
+
+button:hover {
+  background: #eee;
 }
 
 label {

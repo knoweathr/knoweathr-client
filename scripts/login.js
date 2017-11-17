@@ -7,16 +7,26 @@ var app = app || {};
   const login = {};
 
   login.favorites = [];
-  // array of objects
-  // each object has properties: airport_code, month, airport_name, temp_high, temp_low, precipitation, cloud_cover_cond, elevation
 
-  login.toHtml = function() {
-    $('#nosaved').hide();
-    var template = Handlebars.compile($('#favorites-template').text());
-    return template(this);
+  login.toHtml = arr => {
+  // arr is array of favorited objects
+    $('#renderfavorites').empty();
+    arr.forEach((el, i) => {
+      let month = Object.keys(el)[6].slice(0,3).toUpperCase();
+
+      $('#renderfavorites').append(`
+        <ul class="savedlocations clearfix"><span class="savedlocationheader">${el.name} in ${month}</span><br />
+          <li>Average High Temperature: ${Object.values(el)[6]}º</li>
+          <li>Average Low Temperature: ${Object.values(el)[7]}º</li>
+          <li>Chance of Sunny Day: ${Object.values(el)[8]}%</li>
+          <li>Cloud Cover: ${Object.values(el)[9]}</li>
+          <li>Elevation: ${el.elev}ft</li>
+          <li class="deletelocation"><button id="delete${i}">delete from favorites</button></li>
+        </ul>
+      `);
+    });
+    $('#favorites').show();
   }
-  // app.login.favorites.forEach(location => $('#renderfavorites').append(location.toHtml()));
-  // Set login.favorites to new array any time anything happens, and re-render toHtml.
 
   login.checkWindowSize = () => {
     let w = window.innerWidth;
@@ -61,15 +71,17 @@ var app = app || {};
     $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
       .then(
         data => {
-          console.log(data);
           if (data === 'error'){
             $('#validationmsg').text('The username and password do not match.')
           } else {
             $('#loginform').text(`Welcome, ${login.username.toUpperCase()}`);
             $('#favorites').show();
             if (data === 'none') {
-              console.log('data');
               $('#nosaved').show();
+            } else {
+              login.favorites = JSON.parse(data);
+              login.toHtml(login.favorites);
+              // call the tohtml method to display data
             }
           }
         }
