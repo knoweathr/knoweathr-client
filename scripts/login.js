@@ -10,11 +10,50 @@ var app = app || {};
   // array of objects
   // each object has properties: airport_code, month, airport_name, temp_high, temp_low, precipitation, cloud_cover_cond, elevation
 
-  login.toHtml = function() {
-    $('#nosaved').hide();
-    var template = Handlebars.compile($('#favorites-template').text());
-    return template(this);
+
+
+
+
+  login.toHtml = arr => {
+  // arr is array of favorited objects
+    $('#renderfavorites').empty();
+    arr.forEach(el => {
+      let month = Object.keys(el)[6].slice(0,3).toUpperCase();
+
+      $('#renderfavorites').append(`
+        <ul class="savedlocations clearfix"><span class="savedlocationheader">${el.name} in ${month}</span><br />
+          <li>Average High Temperature: ${Object.values(el)[6]}º</li>
+          <li>Average Low Temperature: ${Object.values(el)[7]}º</li>
+          <li>Chance of Sunny Day: ${Object.values(el)[8]}%</li>
+          <li>Cloud Cover: ${Object.values(el)[9]}</li>
+          <li>Elevation: ${el.elev}ft</li>
+          <li class="deletelocation"><button id="">delete location</button></li>
+        </ul>
+      `);
+    });
+    $('#favorites').show();
   }
+
+
+  // <!--Object.keys(app.weather.filteredInfo[0])[6].slice(0,3).toUpperCase()-->
+  //
+  //     <script id="favorites-template" type="text/x-handlebars-template">
+  //       <ul class="savedlocations clearfix"><span class="savedlocationheader">{{name}} in {{month}}</span><br />
+  //         <li>Average High Temperature: {{temp_high}}º</li>
+  //         <li>Average Low Temperature: {{temp_low}}º</li>
+  //         <li>Precipitation: {{precipitation}}%</li>
+  //         <li>Cloud Cover: {{cloud_cover_cond}}</li>
+  //         <li>Elevation: {{elevation}}</li>
+  //         <li class="deletelocation">[<a href="#" id="">delete location</a>]</li>
+  //       </ul>
+  //     </script>
+
+
+  // login.toHtml = function() {
+  //   $('#nosaved').hide();
+  //   var template = Handlebars.compile($('#favorites-template').text());
+  //   return template(this);
+  // }
   // app.login.favorites.forEach(location => $('#renderfavorites').append(location.toHtml()));
   // Set login.favorites to new array any time anything happens, and re-render toHtml.
 
@@ -61,7 +100,6 @@ var app = app || {};
     $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
       .then(
         data => {
-          console.log(data);
           if (data === 'error'){
             $('#validationmsg').text('The username and password do not match.')
           } else {
@@ -70,6 +108,10 @@ var app = app || {};
             if (data === 'none') {
               console.log('data');
               $('#nosaved').show();
+            } else {
+              login.favorites = JSON.parse(data);
+              login.toHtml(login.favorites);
+              // call the tohtml method to display data
             }
           }
         }

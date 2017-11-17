@@ -16,17 +16,6 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
 
-    <script id="favorites-template" type="text/x-handlebars-template">
-      <ul class="savedlocations clearfix"><span class="savedlocationheader">{{airport_code}} in {{month}}</span><br />
-        <li>Airport: {{airport_name}}</li>
-        <li>Average High Temperature: {{temp_high}}º</li>
-        <li>Average Low Temperature: {{temp_low}}º</li>
-        <li>Precipitation: {{precipitation}}%</li>
-        <li>Cloud Cover: {{cloud_cover_cond}}</li>
-        <li>Elevation: {{elevation}}</li>
-        <li class="deletelocation">[<a href="#" id="">delete location</a>]</li>
-      </ul>
-    </script>
 
     <base href=".">
   </head>
@@ -150,7 +139,9 @@
       <div class="push"></div>
 
     </div> <!-- #wrapper -->
-    <footer><br /><div id="copywrite">&copy; knoWeather 2017 | Site data provideed by: <a href="https://www.wunderground.com/weather/api" target="_blank"><img id="wu" src="assets/icons/wundergroundLogo_4c_rev_horz.png"></img></a></div></footer>
+
+    <footer><br /><div id="copywrite">&copy; knoWeathr 2017 | Site data provideed by: <a href="https://www.wunderground.com/weather/api" target="_blank"><img id="wu" src="assets/icons/wundergroundLogo_4c_rev_horz.png"></img></a></div></footer>
+
 
 
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
