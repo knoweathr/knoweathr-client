@@ -50,9 +50,9 @@ var app = app || {};
 
   mapView.initMap = () => {
     (() => {
-      $('#map').fadeIn({duration: 1700, queue: false})
-      $('#map').css({top:1000})
-        .animate({top:10}, 1200);
+      $('#map').fadeIn({duration: 500, queue: false})
+      $('#map').css({top:1000}).animate({top:10}, 500);
+      $('html').animate({ scrollTop: 1900 }, 1800);
     })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
