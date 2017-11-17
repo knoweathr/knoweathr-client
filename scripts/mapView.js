@@ -53,7 +53,7 @@ var app = app || {};
       $('#map').fadeIn({duration: 500, queue: false})
       $('#map').css({top:1000}).animate({top:10}, 500);
       $('html').animate({ scrollTop: 1900 }, 1800);
-      // return false;
+      return false;
     })();
     let $mapDiv = document.getElementById('map');
     let selection = module.weather.continentSelection;
