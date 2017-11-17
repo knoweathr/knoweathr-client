@@ -73,9 +73,9 @@ var app = app || {};
         $('#showmore').show();
         $('#showless').hide();
       }
-      else {
+      if ($('#renderfavorites ul').length <= 2) {
         $('#showmore').hide();
-        $('#showless').show();
+        $('#showless').hide();
       }
 
       $('#showmore').off('click');
