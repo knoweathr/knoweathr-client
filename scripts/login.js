@@ -28,7 +28,7 @@ var app = app || {};
         </ul>
       `);
     });
-    if (app.mapView.loggedIn = true) $('#favorites').show();
+    // if (mapView.loggedIn = true) $('#favorites').show();
     login.checkWindowSize();
   }
 
