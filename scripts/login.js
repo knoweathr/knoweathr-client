@@ -21,11 +21,24 @@ var app = app || {};
           <li>Chance of Sunny Day: ${Object.values(el)[8]}%</li>
           <li>Cloud Cover: ${Object.values(el)[9]}</li>
           <li>Elevation: ${el.elev}ft</li>
-          <li class="deletelocation"><button id="delete${i}">delete from favorites</button></li>
+          <li class="deletelocation"><button onclick="app.login.deleteHandler(${i})">delete from favorites</button></li>
         </ul>
       `);
     });
     $('#favorites').show();
+
+  }
+
+  login.deleteHandler = i => {
+    login.favorites.splice(i, 1);
+    let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
+    $.ajax({
+      url: `${__API_URL__}/updatefavorites`, //eslint-disable-line
+      method: 'PUT',
+      data: obj,
+    })
+      .catch(err => console.error(err));
+    login.toHtml(login.favorites);
   }
 
   login.checkWindowSize = () => {
@@ -68,7 +81,7 @@ var app = app || {};
     login.username = $('#username').val().toLowerCase();
     login.password = $('#password').val().toLowerCase();
 
-    $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password})
+    $.get(`${__API_URL__}/login`, {'username': login.username, 'password': login.password}) //eslint-disable-line
       .then(
         data => {
           if (data === 'error'){
