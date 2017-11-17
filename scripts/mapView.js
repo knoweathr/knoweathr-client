@@ -124,7 +124,8 @@ var app = app || {};
                   data: obj,
                 })
                   .catch(err => console.error(err));
-                $(`#favmsg${i}`).text('Added to favorites!');
+                $(`#favmsg${i}`).text('Added to favorites! ');
+                if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
               } else {
                 if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
                   $(`#favmsg${i}`).text('You have already added this favorite.');
@@ -139,6 +140,7 @@ var app = app || {};
                   })
                     .catch(err => console.error(err));
                   $(`#favmsg${i}`).text('Added to favorites!');
+                  if (window.innerWidth < 1001) $(`#favmsg${i}`).append('<br />Go to your login page to view your favorites.');
                 }
               }
             }
