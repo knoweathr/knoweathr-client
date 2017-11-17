@@ -5,6 +5,7 @@ var app = app || {};
 (function (module){
 
   const mapView = {};
+  mapView.loggedIn = false;
 
   mapView.continents = {
     africa: {
@@ -112,10 +113,11 @@ var app = app || {};
       mapView.favoritesHandler = i => {
         $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
           .then(data => {
-            if (data === 'error'){
+            if (data === 'error') {
               $(`#favmsg${i}`).text('Please login to add favorites!');
             } else {
-              if (data === 'empty'){
+              mapView.loggedIn = true;
+              if (data === 'empty') {
                 app.login.favorites.push(app.weather.filteredInfo[i]);
                 let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
                 $.ajax({
