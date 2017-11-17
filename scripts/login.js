@@ -110,6 +110,7 @@ var app = app || {};
     module.mapView.reset();
     $('#login').show();
     $('#nosaved').hide();
+    login.checkWindowSize();
   }
 
   // login event handler
