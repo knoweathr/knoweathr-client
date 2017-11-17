@@ -29,7 +29,7 @@ var app = app || {};
       `);
     });
     $('#showmore').hide();
-    if ($('#renderfavorites ul:nth-of-type(3)')) {
+    if ($('#renderfavorites ul').length > 2) {
       $('#showmore').show();
       $('#showless').hide();
     }
@@ -66,7 +66,8 @@ var app = app || {};
 
       $('#renderfavorites ul:nth-of-type(n+3)').hide();
 
-      if ($('#renderfavorites ul:nth-of-type(3)')) {
+      if ($('#renderfavorites ul').length > 2) {
+ {
         $('#showmore').show();
         $('#showless').hide();
       }
