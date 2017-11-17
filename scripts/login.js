@@ -7,17 +7,11 @@ var app = app || {};
   const login = {};
 
   login.favorites = [];
-  // array of objects
-  // each object has properties: airport_code, month, airport_name, temp_high, temp_low, precipitation, cloud_cover_cond, elevation
-
-
-
-
 
   login.toHtml = arr => {
   // arr is array of favorited objects
     $('#renderfavorites').empty();
-    arr.forEach(el => {
+    arr.forEach((el, i) => {
       let month = Object.keys(el)[6].slice(0,3).toUpperCase();
 
       $('#renderfavorites').append(`
@@ -27,7 +21,7 @@ var app = app || {};
           <li>Chance of Sunny Day: ${Object.values(el)[8]}%</li>
           <li>Cloud Cover: ${Object.values(el)[9]}</li>
           <li>Elevation: ${el.elev}ft</li>
-          <li class="deletelocation"><button id="">delete location</button></li>
+          <li class="deletelocation"><button id="delete${i}">delete location</button></li>
         </ul>
       `);
     });
