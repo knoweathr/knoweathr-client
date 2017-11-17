@@ -71,7 +71,6 @@ var app = app || {};
       let pinStyle = '';
       let cond = Object.values(airport)[9];
       let iconBase = 'https://knoweathr.github.io/knoweathr-client/assets/icons/';
-      // let iconBase = '../assets/icons/';
 
       switch(cond) {
       case 'mostly sunny':
@@ -108,17 +107,12 @@ var app = app || {};
       });
 
       mapView.favoritesHandler = i => {
-        // console.log(app.weather.filteredInfo[i]);
         $.get(`${__API_URL__}/getfavorites`, {'username': app.login.username, 'password': app.login.password})
           .then(data => {
             if (data === 'error'){
               $(`#favmsg${i}`).text('Please login if you\'d like to add favorites!');
             } else {
               if (data === 'empty'){
-                console.log(typeof app.login.favorites);
-                // if (typeof app.login.favorites === 'string') {
-                //   app.login.favorites = JSON.parse(app.login.favorites);
-                // }
                 app.login.favorites.push(app.weather.filteredInfo[i]);
                 let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
                 $.ajax({
@@ -132,13 +126,7 @@ var app = app || {};
                 if (data.includes(JSON.stringify(app.weather.filteredInfo[i]))) {
                   $(`#favmsg${i}`).text('You have already added this favorite.');
                 } else {
-                  console.log(data);
                   let returnedFavs = JSON.parse(data);
-                  // if (typeof app.login.favorites === 'string') {
-                  //   app.login.favorites = JSON.parse(app.login.favorites);
-                  // }
-                  // console.log(app.weather.filteredInfo[i]);
-                  // console.log(returnedFavs);
                   app.login.favorites.push(app.weather.filteredInfo[i]);
                   let obj = {'username': app.login.username, 'favorites': JSON.stringify(app.login.favorites)};
                   $.ajax({
