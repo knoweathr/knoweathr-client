@@ -11,6 +11,9 @@ var app = app || {};
   login.toHtml = arr => {
   // arr is array of favorited objects
     $('#renderfavorites').empty();
+
+    if (arr.length === 0) $('#nosaved').show();
+
     arr.forEach((el, i) => {
       let month = Object.keys(el)[6].slice(0,3).toUpperCase();
 
@@ -99,7 +102,6 @@ var app = app || {};
           }
         }
       )
-
   })
 
   module.login = login;
