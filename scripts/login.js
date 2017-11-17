@@ -28,6 +28,11 @@ var app = app || {};
         </ul>
       `);
     });
+    $('#showmore').hide();
+    if ($('#renderfavorites ul:nth-of-type(3)')) {
+      $('#showmore').show();
+      $('#showless').hide();
+    }
     $('#favorites').show();
     login.checkWindowSize();
   }
