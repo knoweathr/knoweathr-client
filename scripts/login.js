@@ -21,35 +21,12 @@ var app = app || {};
           <li>Chance of Sunny Day: ${Object.values(el)[8]}%</li>
           <li>Cloud Cover: ${Object.values(el)[9]}</li>
           <li>Elevation: ${el.elev}ft</li>
-          <li class="deletelocation"><button id="delete${i}">delete location</button></li>
+          <li class="deletelocation"><button id="delete${i}">delete from favorites</button></li>
         </ul>
       `);
     });
     $('#favorites').show();
   }
-
-
-  // <!--Object.keys(app.weather.filteredInfo[0])[6].slice(0,3).toUpperCase()-->
-  //
-  //     <script id="favorites-template" type="text/x-handlebars-template">
-  //       <ul class="savedlocations clearfix"><span class="savedlocationheader">{{name}} in {{month}}</span><br />
-  //         <li>Average High Temperature: {{temp_high}}º</li>
-  //         <li>Average Low Temperature: {{temp_low}}º</li>
-  //         <li>Precipitation: {{precipitation}}%</li>
-  //         <li>Cloud Cover: {{cloud_cover_cond}}</li>
-  //         <li>Elevation: {{elevation}}</li>
-  //         <li class="deletelocation">[<a href="#" id="">delete location</a>]</li>
-  //       </ul>
-  //     </script>
-
-
-  // login.toHtml = function() {
-  //   $('#nosaved').hide();
-  //   var template = Handlebars.compile($('#favorites-template').text());
-  //   return template(this);
-  // }
-  // app.login.favorites.forEach(location => $('#renderfavorites').append(location.toHtml()));
-  // Set login.favorites to new array any time anything happens, and re-render toHtml.
 
   login.checkWindowSize = () => {
     let w = window.innerWidth;
@@ -100,7 +77,6 @@ var app = app || {};
             $('#loginform').text(`Welcome, ${login.username.toUpperCase()}`);
             $('#favorites').show();
             if (data === 'none') {
-              console.log('data');
               $('#nosaved').show();
             } else {
               login.favorites = JSON.parse(data);
